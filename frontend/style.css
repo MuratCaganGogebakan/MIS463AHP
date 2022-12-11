@@ -105,5 +105,5 @@ html,body{
   cursor: pointer;
 }
 .range input::-moz-range-progress{
-  background: #b098f9e7; //this progress background is only shown on Firefox
+  background: #b098f9e7; 
 }

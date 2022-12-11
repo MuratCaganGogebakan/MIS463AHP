@@ -13,7 +13,14 @@
         <!-- Double slider-->
         <link rel="stylesheet" href="doubleslider.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+        
+        <!-- Checkbox dropdown-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS -->
+        <link rel="stylesheet" href="style_dropdown2.css">                        
+        <!-- Fontawesome CDN Link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
         
     </head>
     <body>
@@ -30,23 +37,93 @@
             document.getElementById('textInput').value=Math.abs(val);
         }
     </script>
+    
+
 
     <div>
+         <!--dropdown2-->
+        <div class="container" id="dropdown2">
+            <div class="select-btn">
+                <span class="btn-text">Select Genre</span>
+                <span class="arrow-dwn">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </span>
+            </div>
+        
+            <ul class="list-items">
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Indie</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Action</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Strategy</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Casual</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">RPG</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Adventure</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Simulation</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Sports</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Racing</span>
+                </li>
+            </ul>
+        </div> 
+
         <!--Double Range Slider -->
-    <div class="wrapper">
+    <div class="wrapper w-35">
         <header>
-          <h2>Price Range</h2>
-          <p>Use slider or enter min and max price</p>
+          <p>Enter min and max price</p>
         </header>
         <div class="price-input">
           <div class="field">
             <span>Min</span>
-            <input type="number" class="input-min" value="2500">
+            <input type="number" class="input-min" value="2500" >
+            <span> &nbsp;&nbsp;$ </span>
           </div>
           <div class="separator">-</div>
           <div class="field">
             <span>Max</span>
-            <input type="number" class="input-max" value="7500">
+            <input type="number" class="input-max" value="7500"  >
+            <span> &nbsp;&nbsp;$ </span>
           </div>
         </div>
         <div class="slider">
@@ -58,26 +135,6 @@
         </div>
       </div>
 
- 
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <label class="dropdown-item">
-                    <input type="checkbox" value="">
-                    Option 1
-                </label>
-                <label class="dropdown-item">
-                    <input type="checkbox" value="">
-                    Option 2
-                </label>
-                <label class="dropdown-item">
-                    <input type="checkbox" value="">
-                    Option 3
-                </label>
-            </div>
-        </div>
          <!--Range -->
          <div class="border" id= "wrapperr"> 
             <header>
@@ -106,13 +163,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange3" class="form-label" style="position: absolute; left: 350px;color: black;">Price</label>
+            <label for="customRange1" class="form-label" style="position: absolute; left: 250px; color: black; font-size: 12px;">Price</label>
             <input type="range" class="form-range"
                    min="-8" max="8" step="1" value="0"
                    data-toggle="true"
-                   id="customRange3" list="my-datalist"
+                   id="customRange1" list="my-datalist"
                    onchange="updateTextInput(this.value);">
-            <label for="customRange3" class="form-label" style="position: absolute; right: 350px; color: black;" >Rating</label>
+            <label for="customRange1" class="form-label" style="position: absolute; right: 220px ;color: black; font-size: 12px;" >Number of Reviews</label>
             <datalist id="my-datalist">
                 <option>Max</option>
                 
@@ -144,13 +201,162 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange3" class="form-label" style="position: absolute; left: 350px;color: black;">Price</label>
+            <label for="customRange2" class="form-label" style="position: absolute; left: 250px; color: black; font-size: 12px;">Price</label>
+            <input type="range" class="form-range"
+                   min="-8" max="8" step="1" value="0"
+                   data-toggle="true"
+                   id="customRange2" list="my-datalist"
+                   onchange="updateTextInput(this.value);">
+            <label for="customRange2" class="form-label" style="position: absolute; right: 235px; color: black; font-size: 12px;" >Positive Rating %</label>
+            <datalist id="my-datalist">
+                <option>Max</option>
+                
+                <option>1</option>
+                
+                <option>Max</option>
+            </datalist>
+            <br>
+
+        </div>
+         
+        <div class="container w-75" align="center"  >
+            <div class="ticks">
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+            </div>
+            <label for="customRange3" class="form-label" style="position: absolute; left: 250px;color: black; font-size: 12px;">Price</label>
             <input type="range" class="form-range"
                    min="-8" max="8" step="1" value="0"
                    data-toggle="true"
                    id="customRange3" list="my-datalist"
                    onchange="updateTextInput(this.value);">
-            <label for="customRange3" class="form-label" style="position: absolute; right: 335px; color: black;" >Playtime</label>
+            <label for="customRange3" class="form-label" style="position: absolute; right: 228px; color: black; font-size: 12px;" >Average Playtime</label>
+            <datalist id="my-datalist">
+                <option>Max</option>
+                
+                <option>1</option>
+                
+                <option>Max</option>
+            </datalist>
+            <br>
+
+        </div>
+        <div class="container w-75" align="center"  >
+            <div class="ticks">
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+            </div>
+            <label for="customRange4" class="form-label" style="position: absolute; left: 220px;color: black; font-size: 12px;">Number of Ratings</label>
+            <input type="range" class="form-range"
+                   min="-8" max="8" step="1" value="0"
+                   data-toggle="true"
+                   id="customRange4" list="my-datalist"
+                   onchange="updateTextInput(this.value);">
+            <label for="customRange4" class="form-label" style="position: absolute; right: 235px; color: black; font-size:12px;" >Positive Rating %</label>
+            <datalist id="my-datalist">
+                <option>Max</option>
+                
+                <option>1</option>
+                
+                <option>Max</option>
+            </datalist>
+            <br>
+
+        </div>
+        <div class="container w-75" align="center"  >
+            <div class="ticks">
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+            </div>
+            <label for="customRange5" class="form-label" style="position: absolute; left: 225px;color: black; font-size: 12px;">Average Playtime</label>
+            <input type="range" class="form-range"
+                   min="-8" max="8" step="1" value="0"
+                   data-toggle="true"
+                   id="customRange5" list="my-datalist"
+                   onchange="updateTextInput(this.value);">
+            <label for="customRange5" class="form-label" style="position: absolute; right: 220px; color: black; font-size:12px;" >Number of Reviews</label>
+            <datalist id="my-datalist">
+                <option>Max</option>
+                
+                <option>1</option>
+                
+                <option>Max</option>
+            </datalist>
+            <br>
+
+        </div>
+        <div class="container w-75" align="center"  >
+            <div class="ticks">
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+            </div>
+            <label for="customRange6" class="form-label" style="position: absolute; left: 225px;color: black; font-size:12px;">Average Playtime</label>
+            <input type="range" class="form-range"
+                   min="-8" max="8" step="1" value="0"
+                   data-toggle="true"
+                   id="customRange6" list="my-datalist"
+                   onchange="updateTextInput(this.value);">
+            <label for="customRange6" class="form-label" style="position: absolute; right:235px; color: black; font-size:12px;">Positive Rating %</label>
             <datalist id="my-datalist">
                 <option>Max</option>
                 
@@ -166,7 +372,9 @@
     
 
         <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-          <!--Script-->
-    <script src="script.js"></script>
+          <!--Script double slider-->
+        <script src="script.js"></script>
+        <!--Script dropdown2-->
+        <script src="script_dropdown.js"></script>
     </body>
 </html>
