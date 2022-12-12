@@ -27,21 +27,3 @@ datalist {
   
 }
 
-.ticks {
-    display: flex;
-    justify-content: space-between;
-    padding: 1px 95px;
-    
-}
-
-.tick {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: 1px;
-    background: rgb(9, 1, 11);
-    height: 5px;
-    line-height: 50px;
-    
-    
-}
