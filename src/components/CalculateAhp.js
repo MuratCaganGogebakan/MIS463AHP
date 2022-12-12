@@ -41,12 +41,20 @@ function CaltulateRowAverage(ahpMatrix) {
 }
 
 function CalculateConsistencyRatio(ahpMatrix, rowAverages) {
-    // Calculate the lambda max for the matrix
+    // Matrix multiplication of the AHP matrix and the row averages
+    var ax = [];
+    for (var i = 0; i < ahpMatrix.length; i++) {
+        ax[i] = 0;
+        for (var j = 0; j < ahpMatrix.length; j++) {
+            ax[i] += ahpMatrix[i][j] * rowAverages[j];
+        }
+    }
+    // The lambda max is ax/rowAverages summed and divided by the number of rows
     var lambdaMax = 0;
     for (var i = 0; i < ahpMatrix.length; i++) {
-        lambdaMax += rowAverages[i] / ahpMatrix.length;
+        lambdaMax += ax[i] / rowAverages[i];
     }
-    
+    lambdaMax /= ahpMatrix.length;
     // The consistency Index is the lambda max divided by the number of rows
     var CI = (lambdaMax - ahpMatrix.length) / (ahpMatrix.length - 1);
     // The consistency ratio is the consistency index divided by the random index
@@ -56,12 +64,14 @@ function CalculateConsistencyRatio(ahpMatrix, rowAverages) {
 }
 
 function CalculateAhp(inputArray) {
-    var ahpMatrix = CreateAhpMatrix(inputArray);
-    ahpMatrix = normalizeColumns(ahpMatrix);
-    var rowAverages = CaltulateRowAverage(ahpMatrix);
+    var bruh = CreateAhpMatrix(inputArray);
+    console.log("ahp matrix is:" + ahpMatrix);
+    normalizedAhpMatrix = normalizeColumns(ahpMatrix);
+    //ahpMatrix = CreateAhpMatrix(inputArray);
+    var rowAverages = CaltulateRowAverage(normalizedAhpMatrix);
     var CR = CalculateConsistencyRatio(ahpMatrix, rowAverages);
     if (CR >= 0.1) {
-        console.log("The AHP matrix is not consistent");
+        console.log("The AHP matrix is not consistent" + CR);
     }
     else {
         console.log("The AHP matrix is consistent:" + CR);
@@ -72,6 +82,3 @@ function CalculateAhp(inputArray) {
 
 testArray = [1, 2, 3, 4, 5, 6];
 
-console.log(CreateAhpMatrix(testArray));
-
-CalculateAhp(testArray);
