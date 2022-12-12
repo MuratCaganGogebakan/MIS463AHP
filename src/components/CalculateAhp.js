@@ -1,3 +1,4 @@
+
 function CreateAhpMatrix(inputArray) {
     // Populate the AHP matrix
     ahpMatrix = [
@@ -12,27 +13,31 @@ function CreateAhpMatrix(inputArray) {
 
 function normalizeColumns(ahpMatrix) {
     // Find the total of each column
-    var colTotals = [];
-    for (var i = 0; i < ahpMatrix.length; i++) {
+    let colTotals = [];
+    for (let i = 0; i < ahpMatrix.length; i++) {
         colTotals[i] = 0;
-        for (var j = 0; j < ahpMatrix.length; j++) {
+        for (let j = 0; j < ahpMatrix.length; j++) {
             colTotals[i] += ahpMatrix[j][i];
         }
     }
+    // Copy the ahpmatrix to resultMatrix using map
+    let resultMatrix = ahpMatrix.map(function(arr) {
+        return arr.slice();
+    });
     // Normalize each column by dividing each element by the column total
-    for (var i = 0; i < ahpMatrix.length; i++) {
-        for (var j = 0; j < ahpMatrix.length; j++) {
-            ahpMatrix[j][i] /= colTotals[i];
+    for (let i = 0; i < ahpMatrix.length; i++) {
+        for (let j = 0; j < ahpMatrix.length; j++) {
+            resultMatrix[j][i] /= colTotals[i];
         }
     }
-    return ahpMatrix;
+    return resultMatrix;
 }
 
 function CaltulateRowAverage(ahpMatrix) {
-    var rowAverages = [];
-    for (var i = 0; i < ahpMatrix.length; i++) {
+    let rowAverages = [];
+    for (let i = 0; i < ahpMatrix.length; i++) {
         rowAverages[i] = 0;
-        for (var j = 0; j < ahpMatrix.length; j++) {
+        for (let j = 0; j < ahpMatrix.length; j++) {
             rowAverages[i] += ahpMatrix[i][j];
         }
         rowAverages[i] /= ahpMatrix.length;
@@ -42,34 +47,34 @@ function CaltulateRowAverage(ahpMatrix) {
 
 function CalculateConsistencyRatio(ahpMatrix, rowAverages) {
     // Matrix multiplication of the AHP matrix and the row averages
-    var ax = [];
-    for (var i = 0; i < ahpMatrix.length; i++) {
+    let ax = [];
+    for (let i = 0; i < ahpMatrix.length; i++) {
         ax[i] = 0;
-        for (var j = 0; j < ahpMatrix.length; j++) {
+        for (let j = 0; j < ahpMatrix.length; j++) {
             ax[i] += ahpMatrix[i][j] * rowAverages[j];
         }
     }
     // The lambda max is ax/rowAverages summed and divided by the number of rows
-    var lambdaMax = 0;
-    for (var i = 0; i < ahpMatrix.length; i++) {
+    let lambdaMax = 0;
+    for (let i = 0; i < ahpMatrix.length; i++) {
         lambdaMax += ax[i] / rowAverages[i];
     }
     lambdaMax /= ahpMatrix.length;
     // The consistency Index is the lambda max divided by the number of rows
-    var CI = (lambdaMax - ahpMatrix.length) / (ahpMatrix.length - 1);
+    let CI = (lambdaMax - ahpMatrix.length) / (ahpMatrix.length - 1);
     // The consistency ratio is the consistency index divided by the random index
     // The random index is 0.90 for 4 rows
-    var CR = CI / 0.90;
+    let CR = CI / 0.90;
     return CR;
 }
 
 function CalculateAhp(inputArray) {
-    var bruh = CreateAhpMatrix(inputArray);
+    let ahpMatrix = CreateAhpMatrix(inputArray);
     console.log("ahp matrix is:" + ahpMatrix);
     normalizedAhpMatrix = normalizeColumns(ahpMatrix);
-    //ahpMatrix = CreateAhpMatrix(inputArray);
-    var rowAverages = CaltulateRowAverage(normalizedAhpMatrix);
-    var CR = CalculateConsistencyRatio(ahpMatrix, rowAverages);
+    ahpMatrix = CreateAhpMatrix(inputArray);
+    let rowAverages = CaltulateRowAverage(normalizedAhpMatrix);
+    let CR = CalculateConsistencyRatio(ahpMatrix, rowAverages);
     if (CR >= 0.1) {
         console.log("The AHP matrix is not consistent" + CR);
     }
@@ -78,7 +83,29 @@ function CalculateAhp(inputArray) {
     }
 }
 
+// This function reads the steammaster.csv file as list of objects from https://github.com/MuratCaganGogebakan/mis463ahp/blob/main/data/steammaster.csv
+async function ReadSteamMaster() {
+    const response = await fetch('https://raw.githubusercontent.com/MuratCaganGogebakan/mis463ahp/main/data/steammaster.csv');
+    const text = await response.text();
+    lines = text.split('\n');
+    let headers = lines[0].split(',');
+    let data = [];
+    for (let i = 1; i < lines.length; i++) {
+        let obj = {};
+        let currentline = lines[i].split(',');
+        for (let j = 0; j < headers.length; j++) {
+            obj[headers[j]] = currentline[j];
+        }
+        data.push(obj);
+    }
+    return data;
+}
+
+
+ReadSteamMaster().then(console.log);
+
 
 
 testArray = [1, 2, 3, 4, 5, 6];
+
 
