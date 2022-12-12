@@ -15,7 +15,9 @@ body{
     position: relative;
     max-width: 320px;
     width: 100%;
-    margin: 80px auto 30px;
+    margin: 80px auto 30px;  
+    
+    
 }
 .select-btn{
     display: flex;
@@ -102,4 +104,7 @@ body{
 }
 .item.checked .check-icon{
     transform: scale(1);
+}
+nav ul li {
+    position: relative;
 }

@@ -10,7 +10,7 @@ selectBtns.forEach((btn) => {
             let parentBtn = item.parentElement.parentElement;
             item.classList.toggle("checked");
 
-            let title= parentBtn.id;
+            let title= parentBtn.getAttribute("name");
 
             let checked = parentBtn.querySelectorAll(".checked"),
                 btnText = parentBtn.querySelector(".btn-text");

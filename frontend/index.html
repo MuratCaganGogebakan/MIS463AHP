@@ -21,6 +21,11 @@
         <link rel="stylesheet" href="style_dropdown2.css">                        
         <!-- Fontawesome CDN Link -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <!-- Checkbox-->
+        <link rel="stylesheet" href="checkbox.css">
+        <title>Custom Checkbox</title>
+
+        
         
     </head>
     <body>
@@ -45,9 +50,9 @@
         <br>
         <div class="hstack" id="checkboxdropdowmitems"> 
 
-             <!--dropdown2-->
-            <div class="container" id="Select Genre">
-                <div class="select-btn" id="Select_Genre">
+             <!--dropdown1-->
+            <div class="container"  name="Select Genre" id="genre">
+                <div class="select-btn" id="select_genre">
                     <span class="btn-text">Select Genre</span>
                     <span class="arrow-dwn">
                         <i class="fa-solid fa-chevron-down"></i>
@@ -111,9 +116,9 @@
                     </li>
                 </ul>
             </div> 
-            <!--dropdown3-->
-            <div class="container" id="Select Publisher">
-                <div class="select-btn" id="Select_Publisher">
+            <!--dropdown2-->
+            <div class="container" name="Select Publisher" id="publisher">
+                <div class="select-btn" id="select_publisher">
                     <span class="btn-text">Select Publisher</span>
                     <span class="arrow-dwn">
                         <i class="fa-solid fa-chevron-down"></i>
@@ -177,9 +182,9 @@
                     </li>
                 </ul>
             </div> 
-            <!--dropdown4-->
-            <div class="container" id="Select Operating System">
-                <div class="select-btn" id="Select_Operating_System">
+            <!--dropdown3-->
+            <div class="container" name="Select Operating System" id="operating_system">
+                <div class="select-btn" id="os">
                     <span class="btn-text">Select Operating System</span>
                     <span class="arrow-dwn">
                         <i class="fa-solid fa-chevron-down"></i>
@@ -244,9 +249,163 @@
                 </ul>
             </div> 
         </div>
-        
         <br>
-        <!--Double Range Slider -->
+     <div class="hstack">
+         <!--dropdown4-->
+         <div class="container" name="Positive Reviews Percentage" id="positive_review">
+            <div class="select-btn" id="review">
+                <span class="btn-text">Positive Rating Percentage</span>
+                <span class="arrow-dwn">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </span>
+            </div>
+        
+            <ul class="list-items">
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Indie</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Action</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Strategy</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Casual</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">RPG</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Adventure</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Simulation</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Sports</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Racing</span>
+                </li>
+            </ul>
+        </div> 
+
+        <!--Dropdown5-->
+        
+        <div class="container" id="purchase" name="Number Of Purchases">
+            <div class="select-btn" id="no_of_purchases">
+                <span class="btn-text">Number of Purchases</span>
+                <span class="arrow-dwn">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </span>
+            </div>
+        
+            <ul class="list-items">
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Indie</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Action</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Strategy</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Casual</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">RPG</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Adventure</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Simulation</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Sports</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Racing</span>
+                </li>
+            </ul>
+        </div> 
+    </div> 
+    <br>
+    <div class="hstack" style="align-self: center;">
+        <!--Checkbox-->
+        <div id="boxbox" style=  "width: fit-content;">
+            <header>
+            <p>Select Option:</p>
+            </header>
+            <div class="checkbox-container">
+            <input type="checkbox" id="cb1" >
+            <label for="cb1">English Language Support</label>
+          </div>
+          <br>
+          <div class="checkbox-container">
+            <input type="checkbox" id="cb2" >
+            <label for="cb2">Multiplayer Mode</label>
+          </div>
+        </div>
+          
+        <span style="width: 10px;"> </span>
+            <!--Double Range Slider -->
         <div class="wrapper w-35" style="align-self: center;">
             <header>
             <p>Enter min and max price</p>
@@ -273,6 +432,8 @@
             </div>
         </div>
 
+    
+     </div>
         <br>
 
         <!--Range -->
