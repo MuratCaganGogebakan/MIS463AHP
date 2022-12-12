@@ -3,7 +3,15 @@ const items = document.querySelectorAll(".item");
 selectBtns.forEach((btn) => {
 
     btn.addEventListener("click", () => {
+        // Close other buttons but open me
+        selectBtns.forEach((btn2) => {
+            if (btn2 !== btn) {
+                btn2.classList.remove("open");
+            }
+        });
+
         btn.classList.toggle("open");
+
     });
     items.forEach(item => {
         item.addEventListener("click", () => {
