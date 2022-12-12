@@ -2,7 +2,6 @@ const rangeInput = document.querySelectorAll(".range-input input"),
 priceInput = document.querySelectorAll(".price-input input"),
 range = document.querySelector(".slider .progress");
 let priceGap = 1000;
-
 priceInput.forEach(input =>{
     input.addEventListener("input", e =>{
         let minPrice = parseInt(priceInput[0].value),
@@ -39,3 +38,51 @@ rangeInput.forEach(input =>{
         }
     });
 });
+
+getSelectedGenres = () => {
+    let result = []
+    $("#genre-drop-down").children().filter(function() {
+        //class is checked
+        return $(this).hasClass("checked");
+    }).each(function() {
+        //class is checked
+        result.push( $(this).text().split("\n")[4].trim())
+    })
+    return result
+}
+
+getSliderValues = () => {
+    let result = []
+    $("input.form-range").each(function() {
+        //class is checked
+        result.push($(this).val())
+    })
+    return result
+}
+
+getPriceRange = () => {
+    let result = []
+    $("input.input-min").each(function() {
+        //class is checked
+        result.push($(this).val())
+    })
+    $("input.input-max").each(function() {
+        //class is checked
+        result.push($(this).val())
+    })
+    return result
+}
+
+getCheckBoxValues = () => {
+    let result = []
+    $("input#cb1").each(function() {
+        //class is checked
+        result.push($(this).is(":checked"))
+    })
+    $("input#cb2").each(function() {
+        //class is checked
+        result.push($(this).is(":checked"))
+    })
+    return result
+}
+
