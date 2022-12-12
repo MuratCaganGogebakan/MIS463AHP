@@ -41,9 +41,11 @@
 
 
     <div>
-         <!--dropdown2-->
-        <div class="container" id="dropdown2">
-            <div class="select-btn">
+        <div class="hstack" id="checkboxdropdowmitems"> 
+
+             <!--dropdown2-->
+        <div class="container" id="Select Genre">
+            <div class="select-btn" id="Select_Genre">
                 <span class="btn-text">Select Genre</span>
                 <span class="arrow-dwn">
                     <i class="fa-solid fa-chevron-down"></i>
@@ -107,6 +109,141 @@
                 </li>
             </ul>
         </div> 
+         <!--dropdown3-->
+         <div class="container" id="Select Publisher">
+            <div class="select-btn" id="Select_Publisher">
+                <span class="btn-text">Select Publisher</span>
+                <span class="arrow-dwn">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </span>
+            </div>
+        
+            <ul class="list-items">
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Indie</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Action</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Strategy</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Casual</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">RPG</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Adventure</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Simulation</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Sports</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Racing</span>
+                </li>
+            </ul>
+        </div> 
+         <!--dropdown4-->
+         <div class="container" id="Select Operating System">
+            <div class="select-btn" id="Select_Operating_System">
+                <span class="btn-text">Select Operating System</span>
+                <span class="arrow-dwn">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </span>
+            </div>
+        
+            <ul class="list-items">
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Indie</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Action</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Strategy</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Casual</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">RPG</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Adventure</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Simulation</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Sports</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Racing</span>
+                </li>
+            </ul>
+        </div> 
+
+        </div>
+        
 
         <!--Double Range Slider -->
     <div class="wrapper w-35">
@@ -136,14 +273,15 @@
       </div>
 
          <!--Range -->
-         <div class="border" id= "wrapperr"> 
+         <div  id= "wrapperr"> 
+            
             <header>
               <h2>AHP Range Slider</h2>
               <p>Choose the criteria which is more important for you</p>
           
         
         </header>
-         <div class="container w-75" align="center"  >
+        <div class="vstack" id="slideritems">
             <div class="ticks">
                 <span class="tick"></span>
                 <span class="tick"></span>
@@ -163,13 +301,24 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange1" class="form-label" style="position: absolute; left: 250px; color: black; font-size: 12px;">Price</label>
-            <input type="range" class="form-range"
-                   min="-8" max="8" step="1" value="0"
-                   data-toggle="true"
-                   id="customRange1" list="my-datalist"
-                   onchange="updateTextInput(this.value);">
-            <label for="customRange1" class="form-label" style="position: absolute; right: 220px ;color: black; font-size: 12px;" >Number of Reviews</label>
+            <div class="hstack">
+                <div style= "font-size:12px; max-width:80px; min-width:80px; text-align: right;">
+                    Price
+                </div>
+                <span class="form-range" style="width:10px;"></span>
+                <div class="form-range";>
+                    <input type="range" class="form-range"
+                    min="-8" max="8" step="1" value="0"
+                    data-toggle="true"
+                    id="customRange1" list="my-datalist"
+                    onchange="updateTextInput(this.value);">
+                </div>
+                <span class="form-range" style="width:10px;"></span>
+                <div style= "font-size:12px; max-width:80px; min-width:80px; text-align: left;">
+                    Number of Reviews
+                </div>
+                
+            </div>
             <datalist id="my-datalist">
                 <option>Max</option>
                 
@@ -177,199 +326,239 @@
                 
                 <option>Max</option>
             </datalist>
-            <br>
+
+            <div class="ticks">
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+            </div>
+            <div class="hstack">
+                <div style= "font-size:12px; max-width:80px; min-width:80px; text-align: right;">
+                    Price
+                </div>
+                <span class="form-range" style="width:10px;"></span>
+                
+
+                <div class="form-range">
+                    <input type="range" class="form-range"
+                    min="-8" max="8" step="1" value="0"
+                    data-toggle="true"
+                    id="customRange1" list="my-datalist"
+                    onchange="updateTextInput(this.value);">
+                </div>
+                <span class="form-range" style="width:10px;"></span>
+                <div style= "font-size:12px; max-width:80px; min-width:80px; text-align: left;">
+                    Positive Reviews %
+                </div>
+            </div>
+            <datalist id="my-datalist">
+                <option>Max</option>
+                
+                <option>1</option>
+                
+                <option>Max</option>
+            </datalist>
+
+            <div class="ticks">
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+            </div>
+            <div class="hstack">
+                <div style= "font-size:12px; max-width:80px; min-width:80px; text-align: right;">
+                    Price
+                </div>
+                <span class="form-range" style="width:10px;"></span>
+                <div class="form-range">
+                    <input type="range" class="form-range"
+                    min="-8" max="8" step="1" value="0"
+                    data-toggle="true"
+                    id="customRange1" list="my-datalist"
+                    onchange="updateTextInput(this.value);">
+                </div>
+                <span class="form-range" style="width:10px;"></span>
+                <div style= "font-size:12px; max-width:80px; min-width:80px; text-align: left;">
+                    Average Playtime
+                </div>
+                
+            </div>
+            <datalist id="my-datalist">
+                <option>Max</option>
+                
+                <option>1</option>
+                
+                <option>Max</option>
+            </datalist>
+
+            <div class="ticks">
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+            </div>
+            <div class="hstack">
+                <div style= "font-size:12px; max-width:80px; min-width:80px; text-align: right;">
+                    Number of Reviews
+                    
+                </div>
+                <span class="form-range" style="width:10px;"></span>
+                <div class="form-range" >
+                    <input type="range" class="form-range"
+                    min="-8" max="8" step="1" value="0"
+                    data-toggle="true"
+                    id="customRange1" list="my-datalist"
+                    onchange="updateTextInput(this.value);">
+                </div>
+                <span class="form-range" style="width:10px;"></span>
+                <div style= "font-size:12px; max-width:80px; min-width:80px; text-align: left;">
+                    Positive Reviews %
+                </div>
+                
+            </div>
+            <datalist id="my-datalist">
+                <option>Max</option>
+                
+                <option>1</option>
+                
+                <option>Max</option>
+            </datalist>
+
+            <div class="ticks">
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+            </div>
+            <div class="hstack">
+                <div style= "font-size:12px; max-width:80px; min-width:80px; text-align: right;">
+                    Number of Reviews
+                </div>
+                <span class="form-range" style="width:10px;"></span>
+                
+                <div class="form-range">
+                    <input type="range" class="form-range"
+                    min="-8" max="8" step="1" value="0"
+                    data-toggle="true"
+                    id="customRange1" list="my-datalist"
+                    onchange="updateTextInput(this.value);">
+                </div>
+                <span class="form-range" style="width:10px;"></span>
+                <div style= "font-size:12px; max-width:80px; min-width:80px; text-align: left;">
+                    Average Playtime
+                </div>
+                
+            </div>
+            <datalist id="my-datalist">
+                <option>Max</option>
+                
+                <option>1</option>
+                
+                <option>Max</option>
+            </datalist>
+
+            <div class="ticks">
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+                <span class="tick"></span>
+            </div>
+            <div class="hstack">
+                <div style= "font-size:12px; max-width:80px; min-width:80px; text-align: right;">
+                    Average Playtime
+                </div>
+                <span class="form-range" style="width:10px;"></span>
+               
+                <div class="form-range">
+                    <input type="range" class="form-range"
+                    min="-8" max="8" step="1" value="0"
+                    data-toggle="true"
+                    id="customRange1" list="my-datalist"
+                    onchange="updateTextInput(this.value);">
+                </div>
+                <span class="form-range" style="width:10px;"></span>
+                <div style= "font-size:12px; max-width:80px; min-width:80px; text-align: left;">
+                    Positive Reviews %
+                </div>
+                
+            </div>
+            <datalist id="my-datalist">
+                <option>Max</option>
+                
+                <option>1</option>
+                
+                <option>Max</option>
+            </datalist>
 
         </div>
         
-        <div class="container w-75" align="center"  >
-            <div class="ticks">
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-            </div>
-            <label for="customRange2" class="form-label" style="position: absolute; left: 250px; color: black; font-size: 12px;">Price</label>
-            <input type="range" class="form-range"
-                   min="-8" max="8" step="1" value="0"
-                   data-toggle="true"
-                   id="customRange2" list="my-datalist"
-                   onchange="updateTextInput(this.value);">
-            <label for="customRange2" class="form-label" style="position: absolute; right: 235px; color: black; font-size: 12px;" >Positive Rating %</label>
-            <datalist id="my-datalist">
-                <option>Max</option>
-                
-                <option>1</option>
-                
-                <option>Max</option>
-            </datalist>
-            <br>
-
-        </div>
-         
-        <div class="container w-75" align="center"  >
-            <div class="ticks">
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-            </div>
-            <label for="customRange3" class="form-label" style="position: absolute; left: 250px;color: black; font-size: 12px;">Price</label>
-            <input type="range" class="form-range"
-                   min="-8" max="8" step="1" value="0"
-                   data-toggle="true"
-                   id="customRange3" list="my-datalist"
-                   onchange="updateTextInput(this.value);">
-            <label for="customRange3" class="form-label" style="position: absolute; right: 228px; color: black; font-size: 12px;" >Average Playtime</label>
-            <datalist id="my-datalist">
-                <option>Max</option>
-                
-                <option>1</option>
-                
-                <option>Max</option>
-            </datalist>
-            <br>
-
-        </div>
-        <div class="container w-75" align="center"  >
-            <div class="ticks">
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-            </div>
-            <label for="customRange4" class="form-label" style="position: absolute; left: 220px;color: black; font-size: 12px;">Number of Ratings</label>
-            <input type="range" class="form-range"
-                   min="-8" max="8" step="1" value="0"
-                   data-toggle="true"
-                   id="customRange4" list="my-datalist"
-                   onchange="updateTextInput(this.value);">
-            <label for="customRange4" class="form-label" style="position: absolute; right: 235px; color: black; font-size:12px;" >Positive Rating %</label>
-            <datalist id="my-datalist">
-                <option>Max</option>
-                
-                <option>1</option>
-                
-                <option>Max</option>
-            </datalist>
-            <br>
-
-        </div>
-        <div class="container w-75" align="center"  >
-            <div class="ticks">
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-            </div>
-            <label for="customRange5" class="form-label" style="position: absolute; left: 225px;color: black; font-size: 12px;">Average Playtime</label>
-            <input type="range" class="form-range"
-                   min="-8" max="8" step="1" value="0"
-                   data-toggle="true"
-                   id="customRange5" list="my-datalist"
-                   onchange="updateTextInput(this.value);">
-            <label for="customRange5" class="form-label" style="position: absolute; right: 220px; color: black; font-size:12px;" >Number of Reviews</label>
-            <datalist id="my-datalist">
-                <option>Max</option>
-                
-                <option>1</option>
-                
-                <option>Max</option>
-            </datalist>
-            <br>
-
-        </div>
-        <div class="container w-75" align="center"  >
-            <div class="ticks">
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-                <span class="tick"></span>
-            </div>
-            <label for="customRange6" class="form-label" style="position: absolute; left: 225px;color: black; font-size:12px;">Average Playtime</label>
-            <input type="range" class="form-range"
-                   min="-8" max="8" step="1" value="0"
-                   data-toggle="true"
-                   id="customRange6" list="my-datalist"
-                   onchange="updateTextInput(this.value);">
-            <label for="customRange6" class="form-label" style="position: absolute; right:235px; color: black; font-size:12px;">Positive Rating %</label>
-            <datalist id="my-datalist">
-                <option>Max</option>
-                
-                <option>1</option>
-                
-                <option>Max</option>
-            </datalist>
-            <br>
-
-        </div>
-    </div>
-
-    
+        
 
         <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
           <!--Script double slider-->

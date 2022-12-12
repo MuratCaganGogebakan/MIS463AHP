@@ -5,7 +5,7 @@ datalist {
     width: 100%;
     justify-content: space-between;
     margin-top: -13px;
-    padding-top: 10px;
+    padding: 10px 90px;
     font-size: x-small;
     
 }
@@ -30,7 +30,7 @@ datalist {
 .ticks {
     display: flex;
     justify-content: space-between;
-    padding: 1px 8px;
+    padding: 1px 95px;
     
 }
 
