@@ -9,7 +9,14 @@
         <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="tick.css">
         
-          
+        <!--Datepicker-->
+        <title>Styling Input Date</title>
+        <!--Google Font-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+        <!--Stylesheet-->
+        <link rel="stylesheet" href="datepicker.css">
+
         <!-- Double slider-->
         <link rel="stylesheet" href="doubleslider.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +31,8 @@
         <!-- Checkbox-->
         <link rel="stylesheet" href="checkbox.css">
         <title>Custom Checkbox</title>
+
+        
 
         
         
@@ -46,12 +55,14 @@
 
 
     <div class="vstack">
-        <h1 style="text-align: center;">AHP PAGE</h1>
         <br>
-        <div class="hstack" id="checkboxdropdowmitems"> 
-
+        <h1 style="text-align: center;">Find the Best Game For You</h1>
+        <br><br>
+        <div class="hstack" id="checkboxdropdowmitems" style="align-self: center;"> 
+        
+            
              <!--dropdown1-->
-            <div class="container"  name="Select Genre" id="genre">
+            <div class="container" name="Select Genre" id="genre">
                 <div class="select-btn" id="select_genre">
                     <span class="btn-text">Select Genre</span>
                     <span class="arrow-dwn">
@@ -116,8 +127,10 @@
                     </li>
                 </ul>
             </div> 
+    
+        
             <!--dropdown2-->
-            <div class="container" name="Select Publisher" id="publisher">
+            <div class="container"  name="Select Publisher" id="publisher">
                 <div class="select-btn" id="select_publisher">
                     <span class="btn-text">Select Publisher</span>
                     <span class="arrow-dwn">
@@ -182,6 +195,7 @@
                     </li>
                 </ul>
             </div> 
+
             <!--dropdown3-->
             <div class="container" name="Select Operating System" id="operating_system">
                 <div class="select-btn" id="os">
@@ -250,7 +264,7 @@
             </div> 
         </div>
         <br>
-     <div class="hstack">
+     <div class="hstack" style="align-self: center;">
          <!--dropdown4-->
          <div class="container" name="Positive Reviews Percentage" id="positive_review">
             <div class="select-btn" id="review">
@@ -320,7 +334,7 @@
 
         <!--Dropdown5-->
         
-        <div class="container" id="purchase" name="Number Of Purchases">
+        <div class="container"  id="purchase" name="Number Of Purchases" >
             <div class="select-btn" id="no_of_purchases">
                 <span class="btn-text">Number of Purchases</span>
                 <span class="arrow-dwn">
@@ -388,15 +402,32 @@
     </div> 
     <br>
     <div class="hstack" style="align-self: center;">
+
+
+        <div class="vstack">
+            <!--Datepicker-->
+            From:
+            <input type="date">
+            <br>
+            To:
+            <input type="date">
+
+        
+     
+
+
+
+        </div>
+        <span style="width: 10px;"></span>
         <!--Checkbox-->
         <div id="boxbox" style=  "width: fit-content;">
             <header>
             <p>Select Option:</p>
             </header>
             <div class="checkbox-container">
-            <input type="checkbox" id="cb1" >
-            <label for="cb1">English Language Support</label>
-          </div>
+                <input type="checkbox" id="cb1" >
+                <label for="cb1">English Language Support</label>
+            </div>
           <br>
           <div class="checkbox-container">
             <input type="checkbox" id="cb2" >
@@ -405,6 +436,7 @@
         </div>
           
         <span style="width: 10px;"> </span>
+
             <!--Double Range Slider -->
         <div class="wrapper w-35" style="align-self: center;">
             <header>
