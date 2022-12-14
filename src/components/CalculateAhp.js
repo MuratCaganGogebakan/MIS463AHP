@@ -1,6 +1,20 @@
+const { type } = require("@testing-library/user-event/dist/type")
+
+function transformSliderValues(array) {
+    let result = []
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < 0) {
+            array[i] = 1/(1 - array[i])
+        }
+        else if (array[i] >= 0) {
+            array[i] = 1 + array[i]
+        }
+    }
+    return array
+}
 
 function CreateAhpMatrix(inputArray) {
-    // Populate the AHP matrix
+    inputArray = transformSliderValues(inputArray)
     ahpMatrix = [
         [1, inputArray[0], inputArray[1], inputArray[2]],
         [1/inputArray[0], 1, inputArray[3], inputArray[4]],
@@ -102,10 +116,10 @@ async function ReadSteamMaster() {
 }
 
 
-ReadSteamMaster().then(console.log);
+main = async () => {
+steamMasterData = await ReadSteamMaster();
+console.log(typeof(steamMasterData))
+}
 
-
-
-testArray = [1, 2, 3, 4, 5, 6];
-
+main();
 

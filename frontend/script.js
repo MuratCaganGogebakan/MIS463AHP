@@ -39,9 +39,9 @@ rangeInput.forEach(input =>{
     });
 });
 
-getSelectedGenres = () => {
+getSelectedGenre = () => {
     let result = []
-    $("#genre-drop-down").children().filter(function() {
+    $("#genre-dropdown").children().filter(function() {
         //class is checked
         return $(this).hasClass("checked");
     }).each(function() {
@@ -50,6 +50,55 @@ getSelectedGenres = () => {
     })
     return result
 }
+
+getSelectedPublisher = () => {
+    let result = []
+    $("#publisher-dropdown").children().filter(function() {
+        //class is checked
+        return $(this).hasClass("checked");
+    }).each(function() {
+        //class is checked
+        result.push( $(this).text().split("\n")[4].trim())
+    })
+    return result
+}
+
+getSelectedOS = () => {
+    let result = []
+    $("#os-dropdown").children().filter(function() {
+        //class is checked
+        return $(this).hasClass("checked");
+    }).each(function() {
+        //class is checked
+        result.push( $(this).text().split("\n")[4].trim())
+    })
+    return result
+}
+
+getSelectedPrp = () => {
+    let result = []
+    $("#prp-dropdown").children().filter(function() {
+        //class is checked
+        return $(this).hasClass("checked");
+    }).each(function() {
+        //class is checked
+        result.push( $(this).text().split("\n")[4].trim())
+    })
+    return result
+}
+
+getSelectedPurchase = () => {
+    let result = []
+    $("#purchase-dropdown").children().filter(function() {
+        //class is checked
+        return $(this).hasClass("checked");
+    }).each(function() {
+        //class is checked
+        result.push( $(this).text().split("\n")[4].trim())
+    })
+    return result
+}
+
 
 getSliderValues = () => {
     let result = []
@@ -86,3 +135,15 @@ getCheckBoxValues = () => {
     return result
 }
 
+getDates = () => {
+    let result = []
+    $("input#date1").each(function() {
+        //class is checked
+        result.push($(this).val())
+    })
+    $("input#date2").each(function() {
+        //class is checked
+        result.push($(this).val())
+    })
+    return result
+}
