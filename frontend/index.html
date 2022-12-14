@@ -62,6 +62,9 @@
         <br>
         <h1 style="text-align: center;">Find the Best Game For You</h1>
         <br><br>
+        
+    
+
         <div class="hstack" id="checkboxdropdowmitems" style="align-self: center;"> 
         
             
@@ -133,73 +136,6 @@
             </div> 
     
         
-            <!--dropdown2-->
-            <div class="container"  name="Select Publisher" id="publisher">
-                <div class="select-btn" id="select_publisher">
-                    <span class="btn-text">Select Publisher</span>
-                    <span class="arrow-dwn">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </span>
-                </div>
-            
-                <ul class="list-items" id="publisher-dropdown">
-                    <li class="item">
-                        <span class="checkbox">
-                            <i class="fa-solid fa-check check-icon"></i>
-                        </span>
-                        <span class="item-text">Indie</span>
-                    </li>
-                    <li class="item">
-                        <span class="checkbox">
-                            <i class="fa-solid fa-check check-icon"></i>
-                        </span>
-                        <span class="item-text">Action</span>
-                    </li>
-                    <li class="item">
-                        <span class="checkbox">
-                            <i class="fa-solid fa-check check-icon"></i>
-                        </span>
-                        <span class="item-text">Strategy</span>
-                    </li>
-                    <li class="item">
-                        <span class="checkbox">
-                            <i class="fa-solid fa-check check-icon"></i>
-                        </span>
-                        <span class="item-text">Casual</span>
-                    </li>
-                    <li class="item">
-                        <span class="checkbox">
-                            <i class="fa-solid fa-check check-icon"></i>
-                        </span>
-                        <span class="item-text">RPG</span>
-                    </li>
-                    <li class="item">
-                        <span class="checkbox">
-                            <i class="fa-solid fa-check check-icon"></i>
-                        </span>
-                        <span class="item-text">Adventure</span>
-                    </li>
-                    <li class="item">
-                        <span class="checkbox">
-                            <i class="fa-solid fa-check check-icon"></i>
-                        </span>
-                        <span class="item-text">Simulation</span>
-                    </li>
-                    <li class="item">
-                        <span class="checkbox">
-                            <i class="fa-solid fa-check check-icon"></i>
-                        </span>
-                        <span class="item-text">Sports</span>
-                    </li>
-                    <li class="item">
-                        <span class="checkbox">
-                            <i class="fa-solid fa-check check-icon"></i>
-                        </span>
-                        <span class="item-text">Racing</span>
-                    </li>
-                </ul>
-            </div> 
-
             <!--dropdown3-->
             <div class="container" name="Select Operating System" id="operating_system">
                 <div class="select-btn" id="os">
@@ -403,75 +339,142 @@
                 </li>
             </ul>
         </div> 
+
+         <!--dropdown2-->
+         <div class="container"  name="Select Publisher" id="publisher">
+            <div class="select-btn" id="select_publisher">
+                <span class="btn-text">Select Publisher</span>
+                <span class="arrow-dwn">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </span>
+            </div>
+        
+            <ul class="list-items" id="publisher-dropdown">
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Indie</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Action</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Strategy</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Casual</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">RPG</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Adventure</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Simulation</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Sports</span>
+                </li>
+                <li class="item">
+                    <span class="checkbox">
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <span class="item-text">Racing</span>
+                </li>
+            </ul>
+        </div> 
+        
     </div> 
     <br>
-    <div class="hstack" style="align-self: center;">
-
-
-        <div class="vstack">
-         <div  id= "wrapperr" style="width: min-content; height: min-content;"> 
-            <!--Datepicker-->
-            <p> Release Date</p> 
-            From:
-            <input type="date" id="date1">
-            
-            To:
-            <input type="date" id="date2">
-
-        
-         </div>
-       
-        </div>
-        <span style="width: 10px;"></span>
-
-        <!--Checkbox-->
-        <div id="boxbox" style=  "width: fit-content;">
-            <header>
-            <p>Select Option:</p>
-            </header>
-            <div class="checkbox-container">
-                <input type="checkbox" id="cb1" >
-                <label for="cb1">English Language Support</label>
-            </div>
-          <br>
-          <div class="checkbox-container">
-            <input type="checkbox" id="cb2" >
-            <label for="cb2">Multiplayer Mode</label>
-          </div>
-        </div>
-          
-        <span style="width: 10px;"> </span>
+   
+        <br>
+        <div class="hstack">  
 
             <!--Double Range Slider -->
-        <div class="wrapper w-35" style="align-self: center;">
-            <header>
-            <p>Enter min and max price</p>
-            </header>
-            <div class="price-input">
-            <div class="field">
-                <span>Min</span>
-                <input type="number" class="input-min" value="200" >
-                <span> &nbsp;&nbsp;$ </span>
-            </div>
-            <div class="separator">-</div>
-            <div class="field">
-                <span>Max</span>
-                <input type="number" class="input-max" value="400"  >
-                <span> &nbsp;&nbsp;$ </span>
-            </div>
-            </div>
-            <div class="slider">
-            <div class="progress"></div>
-            </div>
-            <div class="range-input">
-            <input type="range" class="range-min" min="0" max="500" value="200" step="10">
-            <input type="range" class="range-max" min="0" max="500" value="400" step="10">
-            </div>
-        </div>
+            <div class="wrapper w-35" style="align-self: center;">
+               <header>
+               <p>Enter min and max price</p>
+               </header>
+               <div class="price-input">
+               <div class="field">
+                   <span>Min</span>
+                   <input type="number" class="input-min" value="200" >
+                   <span> &nbsp;&nbsp;$ </span>
+               </div>
+               <div class="separator"> </div>
+               <div class="field">
+                   <span>Max</span>
+                   <input type="number" class="input-max" value="400"  >
+                   <span> &nbsp;&nbsp;$ </span>
+               </div>
+               </div>
+               <div class="slider" >
+               <div class="progress"></div>
+               </div>
+               <div class="range-input">
+               <input type="range" class="range-min" min="0" max="500" value="200" step="10">
+               <input type="range" class="range-max" min="0" max="500" value="400" step="10">
+               </div>
+           </div>
+           
+           <span style="width: 10px;"> </span>
 
-    
-     </div>
-        <br>
+       <!--Checkbox-->
+       <div id="boxbox" style="width:max-content; height:min-content" >
+           <header>
+           <p>Select Option:</p>
+           </header>
+           <div class="checkbox-container">
+               <input type="checkbox" id="cb1" >
+               <label for="cb1">English Language Support</label>
+           </div>
+         <br>
+         <div class="checkbox-container">
+           <input type="checkbox" id="cb2" >
+           <label for="cb2">Multiplayer Mode</label>
+         </div>
+       </div>
+
+       <span style="width: 10px;"> </span>
+
+       <div  id= "wrapperr" style="width:max-content; height:min-content;"> 
+
+           <!--Datepicker-->
+           <p> Release Date</p> 
+           From
+           <input type="date" id="date1">
+           &nbsp&nbsp
+           To
+           <input type="date" id="date2">
+
+        </div>
+            
+       </div>
+
+       <span style="height: 50px;"> </span>
 
         <!--Range -->
         <div  id= "wrapperr"> 

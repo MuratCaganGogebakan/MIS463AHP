@@ -17,6 +17,7 @@ body{
 .select-btn{
     display: flex;
     height: 50px;
+    width: 350px;
     align-items: center;
     justify-content: space-between;
     padding: 0 16px;

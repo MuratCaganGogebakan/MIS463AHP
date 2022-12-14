@@ -7,12 +7,12 @@
 }
 input[type="date"]{
     background-color: #ffffff;
-    padding: 10px;
+    padding: 6px;
     top: 50%;
     left: 50%;
     font-family: 'Poppins', sans-serif;;
     color: #0f0202;
-    font-size: 18px;
+    font-size: 14px;
     outline: none;
     border-radius: 5px;
     border-style:solid;
