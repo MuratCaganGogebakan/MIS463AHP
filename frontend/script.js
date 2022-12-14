@@ -109,6 +109,8 @@ getSliderValues = () => {
     return result
 }
 
+
+
 getPriceRange = () => {
     let result = []
     $("input.input-min").each(function() {

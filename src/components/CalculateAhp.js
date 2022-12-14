@@ -115,10 +115,114 @@ async function ReadSteamMaster() {
     return data;
 }
 
+function FilterGenre(Data, genre,) {
+    // Filter the data set
+    let filteredData = Data.filter(el => {
+        // Check if the Genre property is defined
+        if (el.Genre && el.Genre.includes(genre)) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return filteredData;
+}
+
+function FilterPublisher(Data, publisher) {
+    // Filter the data set
+    let filteredData = Data.filter(el => {
+        // Check if the Publisher property is defined
+        if (el.publisher && el.publisher.includes(publisher)) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return filteredData;
+}
+
+function FilterOS(Data, os) {
+    // Filter the data set
+    let filteredData = Data.filter(el => {
+        // Check if the OS property is defined
+        if (el.platforms && el.platforms.includes(os)) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return filteredData;
+}
+
+function FilterPrP(Data, prp) {
+    // Filter the data set
+    let filteredData = Data.filter(el => {
+        // Check if the Price property is defined
+        if (el.rating_percentage && el.rating_percentage >= prp) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return filteredData;
+}
+
+function FilterPurcahse(Data, purchase) {
+    // Filter the data set
+    let filteredData = Data.filter(el => {
+        // Check if the Purcahse property is defined
+        if (el.min_owners && el.min_owners >= purchase) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return filteredData;
+} 
+
+function FilterPriceRange(Data, priceArray) {
+    // Filter the data set
+    let filteredData = Data.filter(el => {
+        // Check if the Price property is defined
+        if (el.price && el.price >= priceArray[0] && el.price <= priceArray[1]) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return filteredData;
+}
+
+function FilterDates(Data, dateArray) {
+    // Convert the date strings in Data to date objects
+    Data.forEach(el => {
+        if (el.release_date) {
+            el.release_date = new Date(el.release_date);
+        }
+    });
+    // Filter the data set
+    let filteredData = Data.filter(el => {
+        // Check if the Price property is defined
+        if (el.release_date && el.release_date >= dateArray[0] && el.release_date <= dateArray[1]) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return filteredData;
+}
+
 
 main = async () => {
 steamMasterData = await ReadSteamMaster();
-console.log(typeof(steamMasterData))
+steamMasterData = FilterGenre(steamMasterData, "Action");
+steamMasterData = FilterPublisher(steamMasterData, "Ubisoft");
+steamMasterData = FilterOS(steamMasterData, "windows");
+steamMasterData = FilterPrP(steamMasterData, 80);
+steamMasterData = FilterPurcahse(steamMasterData, 100000);
+steamMasterData = FilterPriceRange(steamMasterData, [0, 5]);
+steamMasterData = FilterDates(steamMasterData, ["2010-01-01", "2020-12-31"]);
+console.log(steamMasterData)
 }
 
 main();
