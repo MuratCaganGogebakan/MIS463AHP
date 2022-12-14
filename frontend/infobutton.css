@@ -29,7 +29,10 @@ html,body{
   display: block;
   height: 30px;
   width: 30px;
-  background: #0205092a;
+  background: #fff;
+  border-style:solid;
+  border-width: 2px;
+  border-color: black;
   border-radius: 50%;
   position: relative;
   z-index: 2;
