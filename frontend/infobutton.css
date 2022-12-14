@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 html,body{
   display: grid;
@@ -27,11 +26,11 @@ html,body{
 }
 .wrapper_info .icon span{
   display: block;
-  height: 30px;
-  width: 30px;
+  height: 22px;
+  width: 22px;
   background: #fff;
   border-style:solid;
-  border-width: 2px;
+  border-width: 1px;
   border-color: black;
   border-radius: 50%;
   position: relative;
@@ -40,8 +39,9 @@ html,body{
   transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 .wrapper_info .icon span i{
-  line-height: 31px;
-  font-size: 25px;
+  line-height:0px;
+ 
+  
 }
 .wrapper_info .icon .tooltip{
   position: absolute;
