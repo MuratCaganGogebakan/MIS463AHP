@@ -7,15 +7,17 @@
 }
 input[type="date"]{
     background-color: #ffffff;
-    padding: 15px;
+    padding: 10px;
     top: 50%;
     left: 50%;
     font-family: 'Poppins', sans-serif;;
     color: #0f0202;
     font-size: 18px;
-    border: none;
     outline: none;
     border-radius: 5px;
+    border-style:solid;
+    border-width: 1px;
+    border-color: rgb(167, 165, 165);
 }
 ::-webkit-calendar-picker-indicator{
     background-color: #ffffff;
