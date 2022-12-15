@@ -36,6 +36,9 @@
         <link rel="stylesheet" href="infobutton.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
+        <!--Calculate button-->
+        <link rel="stylesheet" href="calculatebutton.css">
+
         
 
         
@@ -62,7 +65,7 @@
         <br>
         <h1 style="text-align: center;">Find the Best Game For You</h1>
         <br>
-        <p style="text-align:center">Use the filters on this page to narrow down the game options and find the ones that match your preferences.</p>
+        <p style="text-align:center"> Our decision support system uses a two-stage process to help you find the games that match your preferences. Use the filters<br>on this page to narrow down the game options and then use the AHP Range Slider to fine-tune your recommendations.</p>
         <br>
         
     
@@ -174,7 +177,7 @@
      <div class="hstack" style="align-self: center;">
 
          <!--dropdown3-->
-         <div class="container" name="Rating" id="positive_review">
+         <div class="container" name="Select Rating" id="positive_review">
             <div class="select-btn" id="review">
                 <span class="btn-text" style="color:#fff;"> Select Rating </span>
                 <span class="arrow-dwn">
@@ -221,7 +224,7 @@
         
         <div class="container"  id="purchase" name="Select Number Of Purchases" >
             <div class="select-btn" id="no_of_purchases">
-                <span class="btn-text" style="color:#fff;">Number of Purchases</span>
+                <span class="btn-text" style="color:#fff;">Select Number of Purchases</span>
                 <span class="arrow-dwn">
                     <i class="fa-solid fa-chevron-down"></i>
                 </span>
@@ -401,9 +404,8 @@
         </div> 
         
     </div> 
-    <br>
-   
-        <br>
+    <span style="height:0.7cm;"></span>
+
         <div class="hstack">  
 
             <!--Double Range Slider -->
@@ -467,13 +469,12 @@
             
        </div>
 
-       <span style="height: 50px;"> </span>
+       <span style="height: 1cm;"> </span>
 
        <br>
 
-       <p style="text-align:center">Use the range slider to make pairwise comparisons between criteria and choose their importance in order to <br> help the system recommend the best games for you.
-        
-        <br><br>
+    
+        <br>
         <!--Range -->
         <div  id= "wrapperr"> 
 
@@ -492,6 +493,8 @@
                  </div>
                 <header>
                     <h2>AHP Range Slider</h2>
+                    <p style="text-align:left">Use the range slider to make pairwise comparisons between criteria and choose their importance in order to help the system recommend the best games for you.
+        
                 </header>
                 
                 
@@ -735,6 +738,10 @@
                 
                 <option>9</option>
             </datalist>
+        
+            <span style="height:1cm"></span>
+            <p class="btn" style="align-self: center;">Find</p>
+
 
         </div>
         

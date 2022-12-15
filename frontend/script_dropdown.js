@@ -16,12 +16,23 @@ selectBtns.forEach((btn) => {
     items.forEach(item => {
         item.addEventListener("click", () => {
             let parentBtn = item.parentElement.parentElement;
-            item.classList.toggle("checked");
-
+            let checked = parentBtn.querySelectorAll(".checked");
             let title= parentBtn.getAttribute("name");
+            if((title=="Select Rating" || title=="Select Number Of Purchases") && checked.length > 0) {
+                checked.forEach((selectedItem) => {
+                    selectedItem.classList.remove("checked");
+                    if (selectedItem != item) {
+                        item.classList.toggle("checked");
+                    }
+                })
+            }
+            else {
+                item.classList.toggle("checked");
+            }
+            
 
-            let checked = parentBtn.querySelectorAll(".checked"),
-                btnText = parentBtn.querySelector(".btn-text");
+            checked = parentBtn.querySelectorAll(".checked");
+            let btnText = parentBtn.querySelector(".btn-text");
 
             if(checked && checked.length > 0){
                 btnText.innerText = `${checked.length} Selected`;
