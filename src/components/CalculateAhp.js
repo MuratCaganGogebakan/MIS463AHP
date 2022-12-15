@@ -184,7 +184,11 @@ function FilterPriceRange(Data, priceArray) {
     // Filter the data set
     let filteredData = Data.filter(el => {
         // Check if the Price property is defined
-        if (el.price && el.price >= priceArray[0] && el.price <= priceArray[1]) {
+        if (!el.price) return false;
+        // Convert the price string to a float
+        const price = parseFloat(el.price);
+        // Check if the Price property is defined
+        if (price >= priceArray[0] && price <= priceArray[1]) {
             return true;
         } else {
             return false;
@@ -216,12 +220,11 @@ function FilterDates(Data, dateArray) {
 main = async () => {
 steamMasterData = await ReadSteamMaster();
 steamMasterData = FilterGenre(steamMasterData, "Action");
-steamMasterData = FilterPublisher(steamMasterData, "Ubisoft");
+//steamMasterData = FilterPublisher(steamMasterData, "Ubisoft");
 steamMasterData = FilterOS(steamMasterData, "windows");
 steamMasterData = FilterPrP(steamMasterData, 80);
 steamMasterData = FilterPurcahse(steamMasterData, 100000);
-steamMasterData = FilterPriceRange(steamMasterData, [0, 5]);
-steamMasterData = FilterDates(steamMasterData, ["2010-01-01", "2020-12-31"]);
+steamMasterData = FilterPriceRange(steamMasterData, [20, 40]);
 console.log(steamMasterData)
 }
 
