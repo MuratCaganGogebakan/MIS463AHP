@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 input[type="date"]{
-    background-color: #ffffff;
+    background-color: #fff;
     padding: 6px;
     top: 50%;
     left: 50%;
@@ -20,7 +20,7 @@ input[type="date"]{
     border-color: rgb(167, 165, 165);
 }
 ::-webkit-calendar-picker-indicator{
-    background-color: #ffffff;
+    background-color:#fff;
     padding: 5px;
     cursor: pointer;
     border-radius: 3px;

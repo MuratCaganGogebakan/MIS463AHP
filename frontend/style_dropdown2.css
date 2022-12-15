@@ -23,7 +23,7 @@ body{
     padding: 0 16px;
     border-radius: 8px;
     cursor: pointer;
-    background-color: #fff;
+    background-color:#17a3b8ce;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .select-btn .btn-text{
@@ -35,10 +35,10 @@ body{
     display: flex;
     height: 21px;
     width: 21px;
-    color: #fff;
+    color: #17A2B8;
     font-size: 14px;
     border-radius: 50%;
-    background: #17A2B8;
+    background: #fff;
     align-items: center;
     justify-content: center;
     transition: 0.3s;
