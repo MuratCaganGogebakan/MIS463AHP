@@ -271,6 +271,32 @@ function FilterDates(Data, dateArray) {
     return filteredData;
 }
 
+function FilterCheckboxes(Data, checkboxes) {
+    // Filter English Support
+    if (checkboxes[0]) {
+        let filteredData = Data.filter(el => {
+            if (el.english == 1.0) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        Data = filteredData;
+    }
+    // Filter Multiplayer
+    if (checkboxes[1]) {
+        let filteredData = Data.filter(el => {
+            if (el.Genre && el.Genre.includes("Multiplayer")) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        Data = filteredData;
+    }
+    return Data;
+}
+
 
 
 async function FilterData(genre, publisher, os, prp, purchase, priceArray, dateArray) {
@@ -282,6 +308,7 @@ async function FilterData(genre, publisher, os, prp, purchase, priceArray, dateA
     steamMasterData = FilterPurcahse(steamMasterData, purchase);
     steamMasterData = FilterPriceRange(steamMasterData, priceArray);
     steamMasterData = FilterDates(steamMasterData, dateArray);
+    steamMasterData = FilterCheckboxes(steamMasterData, checkBoxes);
     return steamMasterData;
 }
 
@@ -354,7 +381,7 @@ main = async () => {
     priceArray = getPriceRange();
     dateArray = getDates();
     checkBoxes = getCheckBoxValues();
-    steamMasterData = await FilterData(genre, publisher, os, prp, purchase, priceArray, dateArray);
+    steamMasterData = await FilterData(genre, publisher, os, prp, purchase, priceArray, dateArray, checkBoxes);
     if (steamMasterData.length === 0) {
         console.log("No games found");
         return;
@@ -369,8 +396,11 @@ main = async () => {
 
     // multiply the game matrix and the priority vector
     let result = multiplyGameandAHP(gameMatrix, priorityVector);
-    console.log(result);
-    console.log(checkBoxes);
+    // Drop the second column of the result
+    result = result.map(el => el[0]);
+    headerArray = ["","Name", "Price", "Rating", "Genre", "Publisher","AVG Playtime (Hours)", "Release Date", "OS"];
+    generateTable(result, headerArray);
+    console.log(result)
 }
 
 
