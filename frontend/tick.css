@@ -4,9 +4,9 @@ datalist {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-top: -13px;
+    margin-top:-3px;
     padding: 3px 98px 47px;
-    font-size: 11px;
+    font-size: 13px;
     
 }
 

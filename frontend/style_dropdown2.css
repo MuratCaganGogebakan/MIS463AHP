@@ -23,7 +23,7 @@ body{
     padding: 0 16px;
     border-radius: 8px;
     cursor: pointer;
-    background-color:#17a3b8ce;
+    background-color:#9370DB;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .select-btn .btn-text{
@@ -35,7 +35,7 @@ body{
     display: flex;
     height: 21px;
     width: 21px;
-    color: #17A2B8;
+    color: #9370DB;
     font-size: 14px;
     border-radius: 50%;
     background: #fff;
@@ -89,8 +89,8 @@ body{
     transition: all 0.3s ease-in-out;
 }
 .item.checked .checkbox{
-    background-color: #17A2B8;
-    border-color: #17A2B8;
+    background-color: #9370DB;
+    border-color: #bbc5c7;
 
 }
 .checkbox .check-icon{
