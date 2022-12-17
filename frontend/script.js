@@ -84,7 +84,8 @@ getSelectedPrp = () => {
         //class is checked
         result.push( $(this).text().split("\n")[4].trim())
     })
-    return result
+    // get the first character of the string
+    return result.map(x => x[0])
 }
 
 getSelectedPurchase = () => {
@@ -96,7 +97,8 @@ getSelectedPurchase = () => {
         //class is checked
         result.push( $(this).text().split("\n")[4].trim())
     })
-    return result
+    // Remove the last character of the string
+    return result.map(x => x.slice(0, -1))
 }
 
 
