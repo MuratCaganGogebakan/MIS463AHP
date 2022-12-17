@@ -10,11 +10,12 @@ body{
   align-items: center;
   justify-content: center;
   min-height: 50vh;
-  background: #17A2B8;
+  background: #9370DB;
 }
 ::selection{
   color: #fff;
-  background: #17A2B8;
+  background: #9370DB;
+  
 }
 .wrapper{
   width: 400px;
@@ -74,11 +75,12 @@ input[type="number"]::-webkit-inner-spin-button {
   position: relative;
   background: #ddd;
   border-radius: 5px;
+  width: 100%;
 }
 .slider .progress{
   height: 100%;
-  left: 25%;
-  right: 25%;
+  left: 0%;
+  right: 0%;
   position: absolute;
   border-radius: 5px;
   background: #9370DB;
@@ -110,7 +112,7 @@ input[type="range"]::-moz-range-thumb{
   width: 17px;
   border: none;
   border-radius: 50%;
-  background: #17A2B8;
+  background: #9370DB;
   pointer-events: auto;
   -moz-appearance: none;
   box-shadow: 0 0 6px rgba(0,0,0,0.05);

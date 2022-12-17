@@ -43,12 +43,20 @@
         <!--Output Table-->
         <link rel="stylesheet" href="table.css">
 
+        <!--Scroll Top-->
+        <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet"
+    />
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="scrolltop.css" />
+
         
         
     </head>
     <body>
-        <script src="./generateTable.js"></script>
-        <script src="CalculateAhp.js"></script>
+        
+        
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -419,13 +427,13 @@
                <div class="price-input">
                <div class="field">
                    <span>Min</span>
-                   <input type="number" class="input-min" value="200" >
+                   <input type="number" class="input-min" value="0" >
                    <span> &nbsp;&nbsp;$ </span>
                </div>
                <div class="separator"> </div>
                <div class="field">
                    <span>Max</span>
-                   <input type="number" class="input-max" value="400"  >
+                   <input type="number" class="input-max" value="300"  >
                    <span> &nbsp;&nbsp;$ </span>
                </div>
                </div>
@@ -433,8 +441,8 @@
                <div class="progress"></div>
                </div>
                <div class="range-input">
-               <input type="range" class="range-min" min="0" max="500" value="200" step="10">
-               <input type="range" class="range-max" min="0" max="500" value="400" step="10">
+               <input type="range" class="range-min" min="0" max="200" value="0" step="10">
+               <input type="range" class="range-max" min="0" max="300" value="300" step="10">
                </div>
            </div>
            
@@ -486,7 +494,7 @@
                 <div class="wrapper_info ms-auto">
                     <div class="icon facebook">
                        <div class="tooltip">
-                          Info
+                        <p style="font-size:11px; font-style: italic;"> Move the cursor towards to option you prefer. For example moving the cursor towards the price, you are indicating that the price is more important than number of reviews. 1 indicating that the criteria being compared are equally important and 9 indicating that one is absolutely more important than the other. </p>
                        </div>
                        <span><i class="questionMark" style="font-size: 20px;  font-weight: bold; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">i</i></span>
                     </div>
@@ -741,9 +749,18 @@
                 
                 <option>9</option>
             </datalist>
+
+            <!--scrolltop-->
+
+            <div id="progress">
+                <span id="progress-value">&#x1F815;</span>
+              </div>
         
             <span style="height:1cm"></span>
-            <p class="btn" onclick="main()" style="align-self: center;">Find</p>
+            <!--generate table-->
+            <p class="btn" onclick="generateTable()" style="align-self: center;">Find</p>
+            <table id="myTable">
+            </table>
 
 
         </div>
@@ -751,6 +768,10 @@
         <script src="script_dropdown.js"></script>
         <!--Script double slider-->
         <script src="script.js"></script>
-        
+        <script src="./generateTable.js"></script>
+        <script src="CalculateAhp.js"></script>
+        <!-- Script scrolltop -->
+        <script src="scrolltop.js"></script>
+
     </body>
 </html>
