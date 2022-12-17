@@ -18,7 +18,6 @@ function transformSliderValues(array) {
 }
 
 function CreateAhpMatrix(inputArray) {
-    console.log(inputArray)
     inputArray = transformSliderValues(inputArray)
     ahpMatrix = [
         [1, inputArray[0], inputArray[1], inputArray[2]],
@@ -182,6 +181,7 @@ function FilterOS(Data, os) {
 }
 
 function FilterPrP(Data, prp) {
+    prp = prp * 20;
     if (prp .length===0) {
         return Data;
     }
@@ -201,10 +201,14 @@ function FilterPurcahse(Data, purchase) {
     if (purchase .length===0) {
         return Data;
     }
-    // Filter the data set
+    //Convert the purchase to a string and remove spaces from it
+    purchase = purchase.toString().replace(/\s/g, '');
+    // convert the purchase string to a float
+    purchase = parseFloat(purchase);
+    // Filter the data set also convert el.min_owners to float
     let filteredData = Data.filter(el => {
-        // Check if the Purcahse property is defined
-        if (el.min_owners && el.min_owners >= purchase) {
+        // Check if the Price property is defined
+        if (el.min_owners && parseFloat(el.min_owners) >= purchase) {
             return true;
         } else {
             return false;
@@ -267,6 +271,34 @@ function FilterDates(Data, dateArray) {
     return filteredData;
 }
 
+function FilterCheckboxes(Data, checkboxes) {
+    // Filter English Support
+    if (checkboxes[0]) {
+        let filteredData = Data.filter(el => {
+            if (el.english == 1.0) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        Data = filteredData;
+    }
+    // Filter Multiplayer
+    if (checkboxes[1]) {
+        let filteredData = Data.filter(el => {
+            if (el.Genre && el.Genre.includes("Multiplayer")) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        Data = filteredData;
+    }
+    return Data;
+}
+
+
+
 async function FilterData(genre, publisher, os, prp, purchase, priceArray, dateArray) {
     steamMasterData = await ReadSteamMaster();
     steamMasterData = FilterGenre(steamMasterData, genre);
@@ -276,30 +308,14 @@ async function FilterData(genre, publisher, os, prp, purchase, priceArray, dateA
     steamMasterData = FilterPurcahse(steamMasterData, purchase);
     steamMasterData = FilterPriceRange(steamMasterData, priceArray);
     steamMasterData = FilterDates(steamMasterData, dateArray);
+    steamMasterData = FilterCheckboxes(steamMasterData, checkBoxes);
     return steamMasterData;
 }
 
-function RemoveUnnecessaryColumns(Data) {
-    // Remove unnecessary columns
-    Data.forEach(el => {
-        delete el.name;
-        delete el.url;
-        delete el.image;
-        delete el.release_date;
-        delete el.publisher;
-        delete el.platforms;
-        delete el.Genre;
-        delete el.min_owners;
-    });
-    return Data;
-}
-
 function CreateGameMatrix(Data) {
-    // Remove unnecessary columns
-    removedData = RemoveUnnecessaryColumns(Data);
     // Create a game matrix
     let gameMatrix = [];
-    removedData.forEach(el => {
+    Data.forEach(el => {
         let game = [];
         game.push(el.price);
         game.push(el.total_ratings);
@@ -311,8 +327,8 @@ function CreateGameMatrix(Data) {
     gameMatrix = gameMatrix.map(el => el.map(el => parseFloat(el)));
     // Normalize the columns of game matrix
     gameMatrix = normalizeColumns(gameMatrix);
-    // Add the the Data object to the game matrix
-    gameMatrix = gameMatrix.map((el, i) => [...el, Data[i]]);
+    // Add the the Data object as the first column of the game matrix
+    gameMatrix = gameMatrix.map((el, i) => [Data[i], ...el]);
     return gameMatrix;
 }
 
@@ -354,8 +370,6 @@ function multiplyGameandAHP(gameMatrix, priorityVector) {
     result.sort((a, b) => b[1] - a[1]);
     return result;
 }
-
-
     
 
 main = async () => {
@@ -366,9 +380,13 @@ main = async () => {
     purchase = getSelectedPurchase();
     priceArray = getPriceRange();
     dateArray = getDates();
-    steamMasterData = await FilterData(genre, publisher, os, prp, purchase, priceArray, dateArray);
+    checkBoxes = getCheckBoxValues();
+    steamMasterData = await FilterData(genre, publisher, os, prp, purchase, priceArray, dateArray, checkBoxes);
+    if (steamMasterData.length === 0) {
+        console.log("No games found");
+        return;
+    }
     gameMatrix = CreateGameMatrix(steamMasterData);
-    console.log(gameMatrix);
     
     //test transformSliderValues
     let inputArray = getSliderValues();  
@@ -378,7 +396,11 @@ main = async () => {
 
     // multiply the game matrix and the priority vector
     let result = multiplyGameandAHP(gameMatrix, priorityVector);
-    console.log(result);
+    // Drop the second column of the result
+    result = result.map(el => el[0]);
+    headerArray = ["","Name", "Price", "Rating", "Genre", "Publisher","AVG Playtime (Hours)", "Release Date", "OS"];
+    generateTable(result, headerArray);
+    console.log(result)
 }
 
 
