@@ -181,10 +181,10 @@ function FilterOS(Data, os) {
 }
 
 function FilterPrP(Data, prp) {
-    prp = prp * 20;
     if (prp .length===0) {
         return Data;
     }
+    prp = prp * 20;
     // Filter the data set
     let filteredData = Data.filter(el => {
         // Check if the Price property is defined
@@ -305,6 +305,7 @@ async function FilterData(genre, publisher, os, prp, purchase, priceArray, dateA
     steamMasterData = FilterPublisher(steamMasterData, publisher);
     steamMasterData = FilterOS(steamMasterData, os);
     steamMasterData = FilterPrP(steamMasterData, prp);
+    console.log(steamMasterData);
     steamMasterData = FilterPurcahse(steamMasterData, purchase);
     steamMasterData = FilterPriceRange(steamMasterData, priceArray);
     steamMasterData = FilterDates(steamMasterData, dateArray);
@@ -387,7 +388,7 @@ main = async () => {
         return;
     }
     gameMatrix = CreateGameMatrix(steamMasterData);
-    
+    console.log(genre, publisher, os, prp, purchase, priceArray, dateArray, checkBoxes);
     //test transformSliderValues
     let inputArray = getSliderValues();  
 
@@ -400,7 +401,7 @@ main = async () => {
     result = result.map(el => el[0]);
     headerArray = ["","Name", "Price", "Rating", "Genre", "Publisher","AVG Playtime (Hours)", "Release Date", "OS"];
     generateTable(result, headerArray);
-    console.log(result)
+
 }
 
 
