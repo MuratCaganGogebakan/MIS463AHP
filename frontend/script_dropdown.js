@@ -34,7 +34,7 @@ selectBtns.forEach((btn) => {
             checked = parentBtn.querySelectorAll(".checked");
             let btnText = parentBtn.querySelector(".btn-text");
 
-            if(checked && checked.length > 0){
+            if((checked && checked.length > 0) &&  (title!="Select Rating" && title!="Select Number Of Purchases")){
                 btnText.innerText = `${checked.length} Selected`;
             }else{
                 btnText.innerText = title;
