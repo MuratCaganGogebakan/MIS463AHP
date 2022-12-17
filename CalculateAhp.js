@@ -1,4 +1,6 @@
 var genre, publisher, os, prp, purchase, priceArray, dateArray = undefined;
+var headerArray = ["","Name", "Price", "Rating", "Genre", "Publisher","AVG Playtime (Hours)", "Release Date", "OS"];
+
 
 function transformSliderValues(array) {
     let result = []
@@ -384,6 +386,7 @@ main = async () => {
     steamMasterData = await FilterData(genre, publisher, os, prp, purchase, priceArray, dateArray, checkBoxes);
     if (steamMasterData.length === 0) {
         console.log("No games found");
+        removeTable();
         return;
     }
     gameMatrix = CreateGameMatrix(steamMasterData);
@@ -398,7 +401,6 @@ main = async () => {
     let result = multiplyGameandAHP(gameMatrix, priorityVector);
     // Drop the second column of the result
     result = result.map(el => el[0]);
-    headerArray = ["","Name", "Price", "Rating", "Genre", "Publisher","AVG Playtime (Hours)", "Release Date", "OS"];
     console.log(result)
     generateTable(result, headerArray);
 
