@@ -1,3 +1,4 @@
+var genre, publisher, os, prp, purchase, priceArray, dateArray = undefined;
 
 function transformSliderValues(array) {
     let result = []
@@ -17,6 +18,7 @@ function transformSliderValues(array) {
 }
 
 function CreateAhpMatrix(inputArray) {
+    console.log(inputArray)
     inputArray = transformSliderValues(inputArray)
     ahpMatrix = [
         [1, inputArray[0], inputArray[1], inputArray[2]],
@@ -123,7 +125,7 @@ async function ReadSteamMaster() {
 }
 
 function FilterGenre(Data, genre) {
-    if (genre == undefined) {
+    if (genre .length===0) {
         return Data;
     }
     // Filter the data set
@@ -144,7 +146,7 @@ function FilterGenre(Data, genre) {
 
 
 function FilterPublisher(Data, publisher) {
-    if (publisher == undefined) {
+    if (publisher .length===0) {
         return Data;
     }
     // Filter the data set
@@ -164,7 +166,7 @@ function FilterPublisher(Data, publisher) {
 }
 
 function FilterOS(Data, os) {
-    if (os == undefined) {
+    if (os .length===0) {
         return Data;
     }
     // Filter the data set
@@ -180,7 +182,7 @@ function FilterOS(Data, os) {
 }
 
 function FilterPrP(Data, prp) {
-    if (prp == undefined) {
+    if (prp .length===0) {
         return Data;
     }
     // Filter the data set
@@ -196,7 +198,7 @@ function FilterPrP(Data, prp) {
 }
 
 function FilterPurcahse(Data, purchase) {
-    if (purchase == undefined) {
+    if (purchase .length===0) {
         return Data;
     }
     // Filter the data set
@@ -212,7 +214,7 @@ function FilterPurcahse(Data, purchase) {
 } 
 
 function FilterPriceRange(Data, priceArray) {
-    if (priceArray == undefined) {
+    if (priceArray .length===0) {
         return Data;
     }
     // Filter the data set
@@ -232,7 +234,7 @@ function FilterPriceRange(Data, priceArray) {
 }
 
 function FilterDates(Data, dateArray) {
-    if (dateArray == undefined) {
+    if (dateArray[0] === "" || dateArray[1] === "") {
         return Data;
     }
     // Convert dateArray to date objects
@@ -299,23 +301,18 @@ function CreateGameMatrix(Data) {
     let gameMatrix = [];
     removedData.forEach(el => {
         let game = [];
-        game.push(el.ID);
         game.push(el.price);
         game.push(el.total_ratings);
         game.push(el.playtime);
         game.push(el.rating_percentage);
         gameMatrix = [...gameMatrix, game];
     });
-    // store the first column
-    let firstColumn = gameMatrix.map(el => el[0]);
-    // remove the first column
-    gameMatrix = gameMatrix.map(el => el.slice(1));
     // Convert the game matrix to a matrix of floats
     gameMatrix = gameMatrix.map(el => el.map(el => parseFloat(el)));
     // Normalize the columns of game matrix
     gameMatrix = normalizeColumns(gameMatrix);
-    // Add the first column back to the game matrix
-    gameMatrix = gameMatrix.map((el, i) => [firstColumn[i], ...el]);
+    // Add the the Data object to the game matrix
+    gameMatrix = gameMatrix.map((el, i) => [...el, Data[i]]);
     return gameMatrix;
 }
 
@@ -353,6 +350,8 @@ function multiplyGameandAHP(gameMatrix, priorityVector) {
     let result = multiplyMatrixVector(gameMatrix, priorityVector);
     // Add the first column back to the result
     result = result.map((el, i) => [firstColumn[i], el]);
+    // Sort the result in descending order of the second column
+    result.sort((a, b) => b[1] - a[1]);
     return result;
 }
 
@@ -360,20 +359,19 @@ function multiplyGameandAHP(gameMatrix, priorityVector) {
     
 
 main = async () => {
-    var genre, publisher, os, prp, purchase, priceArray, dateArray = undefined;
-    genre = [ "Action", "Casual", "RPG" ];
-    publisher = [ "Sekai Project"];
-    os = "windows";
-    prp = 90;
-    purchase = 100000;
-    priceArray = [0, 20];
-    dateArray = ["2010-01-01", "2020-01-01"];
+    genre = getSelectedGenre();
+    publisher = getSelectedPublisher();
+    os = getSelectedOS();
+    prp = getSelectedPrp();
+    purchase = getSelectedPurchase();
+    priceArray = getPriceRange();
+    dateArray = getDates();
     steamMasterData = await FilterData(genre, publisher, os, prp, purchase, priceArray, dateArray);
     gameMatrix = CreateGameMatrix(steamMasterData);
     console.log(gameMatrix);
     
     //test transformSliderValues
-    let inputArray = [1,1,1,1,1,1]    
+    let inputArray = getSliderValues();  
 
     // Calculate the priority vector
     let priorityVector = CalculateAhp(inputArray);
@@ -381,9 +379,7 @@ main = async () => {
     // multiply the game matrix and the priority vector
     let result = multiplyGameandAHP(gameMatrix, priorityVector);
     console.log(result);
-
 }
 
-main();
 
 
