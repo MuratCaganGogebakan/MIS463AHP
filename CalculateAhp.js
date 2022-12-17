@@ -305,7 +305,6 @@ async function FilterData(genre, publisher, os, prp, purchase, priceArray, dateA
     steamMasterData = FilterPublisher(steamMasterData, publisher);
     steamMasterData = FilterOS(steamMasterData, os);
     steamMasterData = FilterPrP(steamMasterData, prp);
-    console.log(steamMasterData);
     steamMasterData = FilterPurcahse(steamMasterData, purchase);
     steamMasterData = FilterPriceRange(steamMasterData, priceArray);
     steamMasterData = FilterDates(steamMasterData, dateArray);
@@ -400,6 +399,7 @@ main = async () => {
     // Drop the second column of the result
     result = result.map(el => el[0]);
     headerArray = ["","Name", "Price", "Rating", "Genre", "Publisher","AVG Playtime (Hours)", "Release Date", "OS"];
+    console.log(result)
     generateTable(result, headerArray);
 
 }
