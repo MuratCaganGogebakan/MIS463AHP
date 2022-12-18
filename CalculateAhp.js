@@ -396,7 +396,6 @@ main = async () => {
     dateArray = getDates();
     checkBoxes = getCheckBoxValues();
     steamMasterData = await FilterData(genre, publisher, os, prp, purchase, priceArray, dateArray, checkBoxes);
-    gameMatrix = CreateGameMatrix(steamMasterData);
     console.log(genre, publisher, os, prp, purchase, priceArray, dateArray, checkBoxes); 
     sliderValues = getSliderValues();
     // Calculate the priority vector
@@ -418,6 +417,7 @@ main = async () => {
         removeTable(keepMessage = true);
         return;
     }
+    gameMatrix = CreateGameMatrix(steamMasterData);
     // multiply the game matrix and the priority vector
     let result = multiplyGameandAHP(gameMatrix, priorityVector);
     // Drop the second column of the result
