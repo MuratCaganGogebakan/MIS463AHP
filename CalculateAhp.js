@@ -105,13 +105,13 @@ function CalculateAhp(inputArray) {
     let rowAverages = CaltulateRowAverage(normalizedAhpMatrix);
     let CR = CalculateConsistencyRatio(ahpMatrix, rowAverages);
     if (CR >= 0.1) {
-        document.getElementById("tableMessage").innerHTML = "The AHP matrix is not consistent. The CR is %" + (CR*100).toFixed(2) + ", please adjust your comparisons to make them consistent. ❌";
+        document.getElementById("tableMessage").innerHTML = "The AHP matrix is not consistent. The CR is %" + (CR*100).toFixed(2) + ", please adjust AHP range slider to make your comparisons consistent.";
         // style the tableMessage
         document.getElementById("tableMessage").style.color = "#F92F60";
         return;
     }
     else {
-        document.getElementById("tableMessage").innerHTML = "Well done. The AHP matrix is consistent. The CR is %" + (CR*100).toFixed(2) + ". ✅";
+        document.getElementById("tableMessage").innerHTML = "The AHP matrix is consistent. The CR is %" + (CR*100).toFixed(2) + ". ";
         // style the tableMessage
         document.getElementById("tableMessage").style.color = "#00D26A";
     }
@@ -411,7 +411,7 @@ main = async () => {
     }
     if (steamMasterData.length === 0) {
         // set the text of GameFound html element
-        document.getElementById("tableMessage2").innerHTML = `Try a less strict filter.There isn't any game left to list.`;
+        document.getElementById("tableMessage2").innerHTML = `We couldn't find any games. Please change your filter preferences.`;
         // Set the color of GameFound html element #F92F60 (red)
         document.getElementById("tableMessage2").style.color = "#F92F60";
         removeTable();
