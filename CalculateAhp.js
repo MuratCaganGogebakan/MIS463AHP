@@ -23,12 +23,14 @@ function transformSliderValues(array) {
 }
 
 function CreateAhpMatrix(inputArray) {
-    inputArray = transformSliderValues(inputArray)
+    // deep copy the input array
+    array = inputArray.slice()
+    array = transformSliderValues(array)
     ahpMatrix = [
-        [1, inputArray[0], inputArray[1], inputArray[2]],
-        [1/inputArray[0], 1, inputArray[3], inputArray[4]],
-        [1/inputArray[1],1/inputArray[3] , 1, inputArray[5]],
-        [1/inputArray[2], 1/inputArray[4],1/inputArray[5] , 1]
+        [1, array[0], array[1], array[2]],
+        [1/array[0], 1, array[3], array[4]],
+        [1/array[1],1/array[3] , 1, array[5]],
+        [1/array[2], 1/array[4],1/array[5] , 1]
     ];
     // Returns a 2D array
     return ahpMatrix;
@@ -103,12 +105,12 @@ function CalculateAhp(inputArray) {
     let rowAverages = CaltulateRowAverage(normalizedAhpMatrix);
     let CR = CalculateConsistencyRatio(ahpMatrix, rowAverages);
     if (CR >= 0.1) {
-        document.getElementById("tableMessage").innerHTML = "The AHP matrix is not consistent. The CR is %" + CR.toFixed(2) + ", please adjust your comparisons to make them consistent.";
+        document.getElementById("tableMessage").innerHTML = "The AHP matrix is not consistent. The CR is %" + (CR*100).toFixed(1) + ", please adjust your comparisons to make them consistent.";
         // style the tableMessage
         document.getElementById("tableMessage").style.color = "#F92F60";
     }
     else {
-        document.getElementById("tableMessage").innerHTML = "Well done. The AHP matrix is consistent. The CR is %" + CR.toFixed(2) + ".";
+        document.getElementById("tableMessage").innerHTML = "Well done. The AHP matrix is consistent. The CR is %" + (CR*100).toFixed(1) + ".";
         // style the tableMessage
         document.getElementById("tableMessage").style.color = "#00D26A";
     }
