@@ -105,13 +105,13 @@ function CalculateAhp(inputArray) {
     let rowAverages = CaltulateRowAverage(normalizedAhpMatrix);
     let CR = CalculateConsistencyRatio(ahpMatrix, rowAverages);
     if (CR >= 0.1) {
-        document.getElementById("tableMessage").innerHTML = "The AHP matrix is not consistent. The CR is %" + (CR*100).toFixed(1) + ", please adjust your comparisons to make them consistent. ❌";
+        document.getElementById("tableMessage").innerHTML = "The AHP matrix is not consistent. The CR is %" + (CR*100).toFixed(2) + ", please adjust your comparisons to make them consistent. ❌";
         // style the tableMessage
         document.getElementById("tableMessage").style.color = "#F92F60";
         return;
     }
     else {
-        document.getElementById("tableMessage").innerHTML = "Well done. The AHP matrix is consistent. The CR is %" + (CR*100).toFixed(1) + ". ✅";
+        document.getElementById("tableMessage").innerHTML = "Well done. The AHP matrix is consistent. The CR is %" + (CR*100).toFixed(2) + ". ✅";
         // style the tableMessage
         document.getElementById("tableMessage").style.color = "#00D26A";
     }
