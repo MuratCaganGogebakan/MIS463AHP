@@ -1,8 +1,10 @@
 var genre, publisher, os, prp, purchase, priceArray, dateArray = undefined;
 var headerArray = ["","Name", "Price", "Rating", "Genre", "Publisher","AVG Playtime (Hours)", "Release Date", "OS"];
+var sliderValues = [0,0,0,0,0,0];
 
 
 function transformSliderValues(array) {
+    console.log("Slider values before transformation: " + array)
     let result = []
     // multiply each element by (-1)
     for (let i = 0; i < array.length; i++) {
@@ -16,6 +18,7 @@ function transformSliderValues(array) {
             array[i] = 1 + array[i]
         }
     }
+    console.log("Slider values transformed" + array)
     return array
 }
 
@@ -96,13 +99,18 @@ function CalculateAhp(inputArray) {
     let ahpMatrix = CreateAhpMatrix(inputArray);
     normalizedAhpMatrix = normalizeColumns(ahpMatrix);
     ahpMatrix = CreateAhpMatrix(inputArray);
+    console.log("AHP Matrix: ", ahpMatrix);
     let rowAverages = CaltulateRowAverage(normalizedAhpMatrix);
     let CR = CalculateConsistencyRatio(ahpMatrix, rowAverages);
     if (CR >= 0.1) {
-        console.log("The AHP matrix is not consistent" + CR);
+        document.getElementById("tableMessage").innerHTML = "The AHP matrix is not consistent. The CR is %" + CR.toFixed(2) + ", please adjust your comparisons to make them consistent.";
+        // style the tableMessage
+        document.getElementById("tableMessage").style.color = "#F92F60";
     }
     else {
-        console.log("The AHP matrix is consistent:" + CR);
+        document.getElementById("tableMessage").innerHTML = "Well done. The AHP matrix is consistent. The CR is %" + CR.toFixed(2) + ".";
+        // style the tableMessage
+        document.getElementById("tableMessage").style.color = "#00D26A";
     }
     return rowAverages;
 }
@@ -384,18 +392,25 @@ main = async () => {
     dateArray = getDates();
     checkBoxes = getCheckBoxValues();
     steamMasterData = await FilterData(genre, publisher, os, prp, purchase, priceArray, dateArray, checkBoxes);
+    if (steamMasterData.length != 0) {
+        // Set the text of GameFound html element
+        document.getElementById("tableMessage").innerHTML = `${steamMasterData.length} games listed below in order ✅`;
+        // Set the color of GameFound html element #00D26A (green)
+        document.getElementById("tableMessage").style.color = "#00D26A";
+    }
     if (steamMasterData.length === 0) {
-        console.log("No games found");
+        // set the text of GameFound html element
+        document.getElementById("tableMessage").innerHTML = `Try a less strict filter.There isn't any game left to list ❌`;
+        // Set the color of GameFound html element #F92F60 (red)
+        document.getElementById("tableMessage").style.color = "#F92F60";
         removeTable();
         return;
     }
     gameMatrix = CreateGameMatrix(steamMasterData);
-    console.log(genre, publisher, os, prp, purchase, priceArray, dateArray, checkBoxes);
-    //test transformSliderValues
-    let inputArray = getSliderValues();  
-
+    console.log(genre, publisher, os, prp, purchase, priceArray, dateArray, checkBoxes); 
+    sliderValues = getSliderValues();
     // Calculate the priority vector
-    let priorityVector = CalculateAhp(inputArray);
+    let priorityVector = CalculateAhp(sliderValues);
 
     // multiply the game matrix and the priority vector
     let result = multiplyGameandAHP(gameMatrix, priorityVector);

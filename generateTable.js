@@ -78,9 +78,19 @@ function generateTable(Data, headerArray) {
   tbl.appendChild(tblBody);
   
   document.getElementById("myTable").appendChild(tbl);
+  // Create a div element to hold the table
+  const divContainer = document.createElement("div");
+  // add style to the div element 
+  divContainer.setAttribute("style", "overflow-y:scroll; height:700px;");
+  divContainer.classList.add("table-container");
+  divContainer.appendChild(tbl);
+  // add the <table> inside the <div> element
+  document.getElementById("myTable").
+  appendChild(divContainer);
+
 }
 
 function removeTable() {
   document.getElementById("myTable").innerHTML = "";
- 
+  
 }
