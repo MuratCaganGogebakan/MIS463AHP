@@ -181,11 +181,15 @@ function FilterOS(Data, os) {
     // Filter the data set
     let filteredData = Data.filter(el => {
         // Check if the OS property is defined
-        if (el.platforms && el.platforms.includes(os)) {
-            return true;
-        } else {
-            return false;
+        if (el.OS) {
+            // Check if the OS property contains at least one of the OS in the input array
+            for (let i = 0; i < os.length; i++) {
+                if (el.OS.includes(os[i])) {
+                    return true;
+                }
+            }
         }
+        return false;
     });
     return filteredData;
 }
