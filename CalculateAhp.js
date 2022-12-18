@@ -105,12 +105,13 @@ function CalculateAhp(inputArray) {
     let rowAverages = CaltulateRowAverage(normalizedAhpMatrix);
     let CR = CalculateConsistencyRatio(ahpMatrix, rowAverages);
     if (CR >= 0.1) {
-        document.getElementById("tableMessage").innerHTML = "The AHP matrix is not consistent. The CR is %" + (CR*100).toFixed(1) + ", please adjust your comparisons to make them consistent.";
+        document.getElementById("tableMessage").innerHTML = "The AHP matrix is not consistent. The CR is %" + (CR*100).toFixed(1) + ", please adjust your comparisons to make them consistent. ❌";
         // style the tableMessage
         document.getElementById("tableMessage").style.color = "#F92F60";
+        return;
     }
     else {
-        document.getElementById("tableMessage").innerHTML = "Well done. The AHP matrix is consistent. The CR is %" + (CR*100).toFixed(1) + ".";
+        document.getElementById("tableMessage").innerHTML = "Well done. The AHP matrix is consistent. The CR is %" + (CR*100).toFixed(1) + ". ✅";
         // style the tableMessage
         document.getElementById("tableMessage").style.color = "#00D26A";
     }
@@ -394,26 +395,28 @@ main = async () => {
     dateArray = getDates();
     checkBoxes = getCheckBoxValues();
     steamMasterData = await FilterData(genre, publisher, os, prp, purchase, priceArray, dateArray, checkBoxes);
-    if (steamMasterData.length != 0) {
-        // Set the text of GameFound html element
-        document.getElementById("tableMessage").innerHTML = `${steamMasterData.length} games listed below in order ✅`;
-        // Set the color of GameFound html element #00D26A (green)
-        document.getElementById("tableMessage").style.color = "#00D26A";
-    }
-    if (steamMasterData.length === 0) {
-        // set the text of GameFound html element
-        document.getElementById("tableMessage").innerHTML = `Try a less strict filter.There isn't any game left to list ❌`;
-        // Set the color of GameFound html element #F92F60 (red)
-        document.getElementById("tableMessage").style.color = "#F92F60";
-        removeTable();
-        return;
-    }
     gameMatrix = CreateGameMatrix(steamMasterData);
     console.log(genre, publisher, os, prp, purchase, priceArray, dateArray, checkBoxes); 
     sliderValues = getSliderValues();
     // Calculate the priority vector
     let priorityVector = CalculateAhp(sliderValues);
-
+    if (priorityVector === undefined) {
+        return;
+    }
+    if (steamMasterData.length != 0) {
+        // Set the text of GameFound html element
+        document.getElementById("tableMessage2").innerHTML = `${steamMasterData.length} games listed below in order.`;
+        // Set the color of GameFound html element #00D26A (green)
+        document.getElementById("tableMessage2").style.color = "#00D26A";
+    }
+    if (steamMasterData.length === 0) {
+        // set the text of GameFound html element
+        document.getElementById("tableMessage2").innerHTML = `Try a less strict filter.There isn't any game left to list.`;
+        // Set the color of GameFound html element #F92F60 (red)
+        document.getElementById("tableMessage2").style.color = "#F92F60";
+        removeTable();
+        return;
+    }
     // multiply the game matrix and the priority vector
     let result = multiplyGameandAHP(gameMatrix, priorityVector);
     // Drop the second column of the result
