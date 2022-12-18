@@ -91,8 +91,9 @@ function generateTable(Data, headerArray) {
 
 }
 
-function removeTable() {
+function removeTable(keepMessage) {
   document.getElementById("myTable").innerHTML = "";
-  document.getElementById("tableMessage2").style.display = "none";
-  
+  if (keepMessage == false) {
+    document.getElementById("tableMessage2").style.display = "none";
+  }  
 }

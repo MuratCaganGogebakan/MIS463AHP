@@ -108,7 +108,7 @@ function CalculateAhp(inputArray) {
         document.getElementById("tableMessage").innerHTML = "The AHP matrix is not consistent. The CR is %" + (CR*100).toFixed(2) + ", please adjust AHP range slider to make your comparisons consistent.";
         // style the tableMessage
         document.getElementById("tableMessage").style.color = "#F92F60";
-        removeTable();
+        removeTable(keepMessage = false);
         return;
     }
     else {
@@ -415,7 +415,7 @@ main = async () => {
         document.getElementById("tableMessage2").innerHTML = `We couldn't find any games. Please change your filter preferences.`;
         // Set the color of GameFound html element #F92F60 (red)
         document.getElementById("tableMessage2").style.color = "#F92F60";
-        removeTable();
+        removeTable(keepMessage = true);
         return;
     }
     // multiply the game matrix and the priority vector
