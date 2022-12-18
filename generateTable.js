@@ -87,10 +87,12 @@ function generateTable(Data, headerArray) {
   // add the <table> inside the <div> element
   document.getElementById("myTable").
   appendChild(divContainer);
+  document.getElementById("tableMessage2").style.display = "block";
 
 }
 
 function removeTable() {
   document.getElementById("myTable").innerHTML = "";
+  document.getElementById("tableMessage2").style.display = "none";
   
 }
