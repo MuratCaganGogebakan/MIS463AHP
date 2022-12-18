@@ -79,3 +79,7 @@ function generateTable(Data, headerArray) {
   
   document.getElementById("myTable").appendChild(tbl);
 }
+
+function removeTable() {
+  document.getElementById("myTable").innerHTML = "";
+}

@@ -72,7 +72,10 @@ getSelectedOS = () => {
         //class is checked
         result.push( $(this).text().split("\n")[4].trim())
     })
-    return result
+    // map the result to string
+
+    // Convert Windows to windows, Mac OS to mac, Linux to linux
+    return result.map(x => x.toLowerCase().replace(" ", "").replace("os", ""))
 }
 
 getSelectedPrp = () => {
