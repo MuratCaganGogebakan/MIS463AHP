@@ -108,6 +108,7 @@ function CalculateAhp(inputArray) {
         document.getElementById("tableMessage").innerHTML = "The AHP matrix is not consistent. The CR is %" + (CR*100).toFixed(2) + ", please adjust AHP range slider to make your comparisons consistent.";
         // style the tableMessage
         document.getElementById("tableMessage").style.color = "#F92F60";
+        removeTable();
         return;
     }
     else {
