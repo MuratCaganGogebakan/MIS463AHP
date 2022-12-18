@@ -61,7 +61,7 @@ html,body{
   width:350px;
 }
 .wrapper_info .icon:hover .tooltip{
-  top: -140px;
+  top: -160px;
   opacity: 1;
   pointer-events: auto;
   width: 350px;
@@ -87,5 +87,5 @@ html,body{
 .wrapper_info .facebook:hover span,
 .wrapper_info .facebook:hover .tooltip,
 .wrapper_info .facebook:hover .tooltip:before{
-  background: #9370DB;
+  background: #2c037e;
 }
