@@ -17,7 +17,6 @@ function generateTable(Data, headerArray) {
   tbl.setAttribute("id", "myTable");
   const tblHead = document.createElement("thead");
   const tblBody = document.createElement("tbody");
-  console.log(tableLength)
   
   // creating all cells
   for (let i = 0; i < tableLength; i++) {
