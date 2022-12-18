@@ -12,7 +12,7 @@ function generateTable(Data, headerArray) {
   const tblBody = document.createElement("tbody");
   
   // creating all cells
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 50; i++) {
     // creates a table row
     const row = document.createElement("tr");
 
@@ -82,4 +82,5 @@ function generateTable(Data, headerArray) {
 
 function removeTable() {
   document.getElementById("myTable").innerHTML = "";
+ 
 }

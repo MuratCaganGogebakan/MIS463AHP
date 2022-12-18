@@ -1,33 +1,40 @@
 
 .content-table {
     border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 16px;
+    margin: 0px 0;
+    font-size: 14px;
     max-width: 50px;
     border-radius: 5px 5px 0 0;
-    overflow: hidden;
+    overflow: auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .content-table thead tr {
-    background-color: #9470db;
-    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0);
+    color: #000;
     text-align: left;
-    font-size: 16px;
+    font-size: 14px;
+    
     
 }
 
 .content-table th,
 .content-table td {
-    padding: 12px 15px;
+    
+    padding-right:20px;
+    padding-right:10px;
+    padding-bottom: 2px;
+    padding-top:2px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    
 }
 
 .content-table tbody tr {
-    border-bottom: 1px solid #FFF;
+    border-bottom: 2px solid rgb(73, 73, 73);
 }
 
 .content-table tbody tr:nth-of-type(even) {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0);
 
 }
 
