@@ -4,7 +4,6 @@ var sliderValues = [0,0,0,0,0,0];
 
 
 function transformSliderValues(array) {
-    console.log("Slider values before transformation: " + array)
     let result = []
     // multiply each element by (-1)
     for (let i = 0; i < array.length; i++) {
@@ -18,7 +17,6 @@ function transformSliderValues(array) {
             array[i] = 1 + array[i]
         }
     }
-    console.log("Slider values transformed" + array)
     return array
 }
 
@@ -339,6 +337,8 @@ function CreateGameMatrix(Data) {
     });
     // Convert the game matrix to a matrix of floats
     gameMatrix = gameMatrix.map(el => el.map(el => parseFloat(el)));
+    // Convert price to a 300-price
+    gameMatrix = gameMatrix.map(el => [300 - el[0], ...el.slice(1)]);
     // Normalize the columns of game matrix
     gameMatrix = normalizeColumns(gameMatrix);
     // Add the the Data object as the first column of the game matrix
