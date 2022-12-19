@@ -11,7 +11,7 @@
   #progress {
     position: fixed;
     bottom: 20px;
-    right: 400px;
+    right: 7cm;
     height: 70px;
     width: 70px;
     display: none;
@@ -28,5 +28,5 @@
     display: grid;
     place-items: center;
     font-size: 35px;
-    color: #323535;
+    color: #97969a;
   }
