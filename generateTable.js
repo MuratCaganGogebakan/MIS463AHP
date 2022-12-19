@@ -1,11 +1,9 @@
-function generateTable(Data, headerArray) {
-  // get the maximum of length of the data and 50
-  if (Data.length < 50) {
-    var tableLength = Data.length;
-  }
-  else {
-    var tableLength = 50;
-  }
+function generateTable(Data, headerArray, tableLength) {
+  if (tableLength > Data.length) {
+    tableLength = Data.length;
+}
+
+tableLength ++;
     
   if (document.getElementById("myTable") != null && document.getElementById("myTable").innerHTML !== "") {
       document.getElementById("myTable").innerHTML = "";
@@ -19,49 +17,78 @@ function generateTable(Data, headerArray) {
   const tblBody = document.createElement("tbody");
   
   // creating all cells
-  for (let i = 0; i < tableLength; i++) {
+  for (let i = 0; i < tableLength+1; i++) {
     // creates a table row
     const row = document.createElement("tr");
 
-    for (let j = 0; j < 10; j++) {
+    for (let j = 0; j < 11; j++) {
       const cellD = document.createElement("td");
       let cellH = document.createElement("th");
-      let cellText = document.createTextNode(`cell in row ${i}, column ${j}`);
-      if (j==0 && i!=0) {
-        cellText = document.createTextNode(i.toString());
+      let cellText = document.createTextNode("");
+      let rowCon = (i!=0 && i!=1);
+      if (j==0 && rowCon) {
+        cellText = document.createTextNode((i-1).toString());
           
       }
-      if (j==1 && i!=0) {
+      if (j==1 && rowCon) {
           cellText = document.createElement("img");
           cellText.setAttribute("src", Data[i - 1].image);
           // Set the scale of the image
           cellText.setAttribute("width", "175");
       }
-      if (j==2 && i!=0) {
+      if (j==2 && rowCon) {
           cellText.textContent = Data[i - 1].name.replace(/[^\x00-\x7F]/g, "");
       }
-      if (j==3 && i!=0) {
+      if (j==3 && rowCon) {
           cellText.textContent = Data[i - 1].price;
       }
-      if (j==4 && i!=0) {
+      if (j==4 && rowCon) {
           cellText.textContent = ((Data[i - 1].rating_percentage)/20).toFixed(1);
       }
-      if (j==5 && i!=0) {
+      if (j==5 && rowCon) {
           cellText.textContent = Data[i - 1].Genre;
       }
-      if (j==6 && i!=0) {
+      if (j==6 && rowCon) {
+        cellText.textContent = Data[i - 1].total_ratings;
+    }
+      if (j==7 && rowCon) {
           cellText.textContent = Data[i - 1].publisher;
       }
-      if (j==7 && i!=0) {
+      if (j==8 && rowCon) {
           cellText.textContent = (parseFloat(Data[i - 1].playtime)/60).toFixed(1);
       }
-      if (j==8 && i!=0) {
+      if (j==9 && rowCon) {
           cellText.textContent = Data[i - 1].release_date;
       }
-      if (j==9 && i!=0) {
+      if (j==10 && rowCon) {
           cellText.textContent = Data[i - 1].platforms;
       }
-      if (i == 0) {
+      if (i == 0 && j == 1) {
+        cellText = document.createTextNode("Select number of entries: ");
+        cellD.appendChild(cellText);
+        row.appendChild(cellD);
+        continue;
+
+    }
+    else if (i == 0 && j == 2) {
+            let input = document.createElement("input");
+          input.setAttribute("type", "number");
+          input.setAttribute("id", "inputInt");
+          input.setAttribute("min", "1");
+          input.setAttribute("max", "50");
+          // keep last used value in input
+          input.setAttribute("value", tableLength - 1);
+          // generate table again when input is changed
+          input.addEventListener("change", () => {
+              generateTable(Data, headerArray, input.value);
+          });
+
+          cellD.appendChild(input);
+          row.appendChild(cellD);
+        continue;
+
+    }
+      if (i == 1) {
           // set the text content to the header
           cellH.textContent = headerArray[j-1];
           row.appendChild(cellH);
@@ -76,7 +103,7 @@ function generateTable(Data, headerArray) {
     }
 
     // add the row to the end of the table body
-    if (i==0) {
+    if (i==0 || i==1) {
       tblHead.appendChild(row);
     } else {
       tblBody.appendChild(row);

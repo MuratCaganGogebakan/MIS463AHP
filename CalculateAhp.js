@@ -1,5 +1,5 @@
 var genre, publisher, os, prp, purchase, priceArray, dateArray = undefined;
-var headerArray = ["","Name", "Price", "Rating", "Genre", "Publisher","AVG Playtime (Hours)", "Release Date", "OS"];
+var headerArray = ["","Name", "Price", "Rating", "Genre", "Publisher","Number of Reviews","AVG Playtime (hrs)", "Release Date", "Operating System"];
 var sliderValues = [0,0,0,0,0,0];
 
 
@@ -426,7 +426,7 @@ main = async () => {
     result = result.map(el => el[0]);
     console.log("priorityVector: ", priorityVector)
     console.log(result)
-    generateTable(result, headerArray);
+    generateTable(result, headerArray, 50);
 
 }
 
