@@ -23,10 +23,10 @@
     display: block;
     height: calc(100% - 15px);
     width: calc(100% - 15px);
-    background-color: #ffffff;
+    background-color: #f7f0f0;
     border-radius: 50%;
     display: grid;
     place-items: center;
     font-size: 35px;
-    color: #97969a;
+    color: #000000;
   }
