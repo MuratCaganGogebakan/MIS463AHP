@@ -1,4 +1,11 @@
 function generateTable(Data, headerArray) {
+  // get the maximum of length of the data and 50
+  if (Data.length < 50) {
+    var tableLength = Data.length;
+  }
+  else {
+    var tableLength = 50;
+  }
     
   if (document.getElementById("myTable") != null && document.getElementById("myTable").innerHTML !== "") {
       document.getElementById("myTable").innerHTML = "";
@@ -12,7 +19,7 @@ function generateTable(Data, headerArray) {
   const tblBody = document.createElement("tbody");
   
   // creating all cells
-  for (let i = 0; i <50; i++) {
+  for (let i = 0; i < tableLength; i++) {
     // creates a table row
     const row = document.createElement("tr");
 

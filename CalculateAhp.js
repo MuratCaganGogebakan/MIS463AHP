@@ -43,14 +43,9 @@ function normalizeColumns(ahpMatrix) {
             colTotals[i] += ahpMatrix[j][i];
         }
     }
-    // Create a copy of the AHP matrix without arr.slice
-    let resultMatrix = [];
-    for (let i = 0; i < ahpMatrix.length; i++) {
-        resultMatrix[i] = [];
-        for (let j = 0; j < ahpMatrix[0].length; j++) {
-            resultMatrix[i][j] = ahpMatrix[i][j];
-        }
-    }
+    // Create a copy of the AHP matrix
+    let resultMatrix = ahpMatrix.slice();
+
     // Normalize each column by dividing each element by the column total
     for (let i = 0; i < ahpMatrix.length; i++) {
         for (let j = 0; j < ahpMatrix[0].length; j++) {
@@ -97,9 +92,12 @@ function CalculateConsistencyRatio(ahpMatrix, rowAverages) {
 
 function CalculateAhp(inputArray) {
     let ahpMatrix = CreateAhpMatrix(inputArray);
+    console.log("Input Array: ", inputArray)
+    console.log( "AHP Matrix: ", ahpMatrix)
     normalizedAhpMatrix = normalizeColumns(ahpMatrix);
+    console.log("Normalized AHP Matrix: ", normalizedAhpMatrix)
     ahpMatrix = CreateAhpMatrix(inputArray);
-    console.log("AHP Matrix: ", ahpMatrix);
+    console.log("AHP Matrix: ", normalizedAhpMatrix);
     let rowAverages = CaltulateRowAverage(normalizedAhpMatrix);
     let CR = CalculateConsistencyRatio(ahpMatrix, rowAverages);
     if (CR >= 0.1) {
@@ -183,11 +181,15 @@ function FilterOS(Data, os) {
     // Filter the data set
     let filteredData = Data.filter(el => {
         // Check if the OS property is defined
-        if (el.platforms && el.platforms.includes(os)) {
-            return true;
-        } else {
-            return false;
+        if (el.OS) {
+            // Check if the OS property contains at least one of the OS in the input array
+            for (let i = 0; i < os.length; i++) {
+                if (el.OS.includes(os[i])) {
+                    return true;
+                }
+            }
         }
+        return false;
     });
     return filteredData;
 }
@@ -422,6 +424,7 @@ main = async () => {
     let result = multiplyGameandAHP(gameMatrix, priorityVector);
     // Drop the second column of the result
     result = result.map(el => el[0]);
+    console.log("priorityVector: ", priorityVector)
     console.log(result)
     generateTable(result, headerArray);
 
