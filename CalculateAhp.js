@@ -178,13 +178,15 @@ function FilterOS(Data, os) {
     if (os .length===0) {
         return Data;
     }
+    // map OS names to the ones in the data set
+    console.log("OS: ", os)
     // Filter the data set
     let filteredData = Data.filter(el => {
         // Check if the OS property is defined
-        if (el.OS) {
+        if (el.platforms) {
             // Check if the OS property contains at least one of the OS in the input array
             for (let i = 0; i < os.length; i++) {
-                if (el.OS.includes(os[i])) {
+                if (el.platforms.includes(os[i])) {
                     return true;
                 }
             }
